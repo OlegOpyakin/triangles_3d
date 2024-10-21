@@ -13,6 +13,16 @@ public:
     
     };
     
+    Plane GetPlane(){
+        return plane;
+    }
+
+    bool AllPointsRightOfPlane(Plane plane){
+        if (plane.ValuePlaneEquel(point_1_) != plane.ValuePlaneEquel(point_2_)) return false;
+        if (plane.ValuePlaneEquel(point_1_) != plane.ValuePlaneEquel(point_3_)) return false;
+        return true;
+    }
+
 private:
     Point point_1_, point_2_, point_3_; // triangle points
     Plane plane; // the plane of our triangle

@@ -15,13 +15,17 @@ public:
         A_ = normal_vector_.GetX();
         B_ = normal_vector_.GetY();
         C_ = normal_vector_.GetZ();
-        D_ = - (A_ * point_1.GetX() + B_ * point_1.GetY() + C_ * point_1.GetZ()); //хз гпт подсказал, сам не уверен в правильности
+        D_ = - (A_ * point_1.GetX() + B_ * point_1.GetY() + C_ * point_1.GetZ()); 
     };
 
     double GetA() const { return A_; };
     double GetB() const { return B_; };
     double GetC() const { return C_; };
     double GetD() const { return D_; };
+
+    double ValuePlaneEquel(Point point){
+        return A_ * point.GetX() + B_ * point.GetY() + C_ * point.GetZ() + D_;
+    }
 
     Vector GetVector() const { return normal_vector_; }
 
@@ -35,7 +39,21 @@ private:
     Vector normal_vector_;
 };
 
-bool PlanesParallelCheck(Plane plane_1, Plane plane_2){           // to check if two planes are parallel
+bool PlanesParallelCheck(Plane &plane_1, Plane &plane_2){           // to check if two planes are parallel
     return VectorEqual(plane_1.GetVector(), plane_2.GetVector()); // returns true if they are
 }
 
+Vector VectorPlanesIntersection(Plane &plane_1, Plane &plane_2){
+    return VectorProduct(plane_1.GetVector(), plane_2.GetVector());
+}
+
+bool PlaneEqual(Plane plane_1, Plane plane_2){
+    if(plane_1.GetA() / plane_1.GetD() != plane_2.GetA() / plane_2.GetD()) return false;
+    if(plane_1.GetB() / plane_1.GetD() != plane_2.GetA() / plane_2.GetD()) return false;
+    if(plane_1.GetC() / plane_1.GetD() != plane_2.GetA() / plane_2.GetD()) return false;
+    return true;
+} 
+
+bool PlaneParallel(Plane plane_1, Plane plane_2){
+    return VectorComplanar(plane_1.GetVector(), plane_2.GetVector());
+}
