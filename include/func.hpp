@@ -15,7 +15,7 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             return false;   // они параллельны, но не совпадают;
         }
         else{
-            // Если в одной плоскости
+            return TrianglesInOnePlanesIntersection(triangle_1, triangle_2); // Если в одной плоскости
         }
     }
     else{
@@ -25,10 +25,15 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
         else{
             // Пересечение треугольников по линии пересечения их плоскостей 
             // Мы уже знаем что их плоскость одного треугольника пересекается со вторым.
-            // Пересечем прямую с обоими треугольниками. 
+            // Пересечем прямую с обоими треугольниками. (проверим что она пересекается с обоими треугольниками)
             // Пусть Т1 - одна из точек пересечения с первым, Т2 - Одна из точек пересечения со вторым.
             // Если получим Т2 Т2 Т1 Т1 или Т1 Т1 Т2 Т2 => false 
             // в остальных случаях true
+            Vector plane_intesection_vector = VectorPlanesIntersection(triangle_1.GetPlane(), triangle_2.GetPlane());
+            if (triangle_1.TriangleVectorIntersection(plane_intesection_vector) == true and triangle_2.TriangleVectorIntersection(plane_intesection_vector)){
+                // проверяем порядок точек
+
+            }
         }
     } 
 }

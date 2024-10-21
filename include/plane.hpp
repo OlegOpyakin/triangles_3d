@@ -43,7 +43,7 @@ bool PlanesParallelCheck(Plane &plane_1, Plane &plane_2){           // to check 
     return VectorEqual(plane_1.GetVector(), plane_2.GetVector()); // returns true if they are
 }
 
-Vector VectorPlanesIntersection(Plane &plane_1, Plane &plane_2){
+Vector VectorPlanesIntersection(Plane plane_1, Plane plane_2){
     return VectorProduct(plane_1.GetVector(), plane_2.GetVector());
 }
 

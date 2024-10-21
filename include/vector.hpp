@@ -1,5 +1,5 @@
 #include "point.hpp"
-
+#include <cmath>
 #pragma once
 
 class Vector{
@@ -21,6 +21,13 @@ public:
         std::clog << "Vector(" << X_ << ";" << Y_ << ";" << Z_ << ")\n";
     }
 
+    double Len(){   //*
+        return sqrt(X_*X_ + Y_*Y_ + Z_*Z_);
+    }
+
+    bool PointBelongsVector(Point point){
+        
+    }
     //void operator()(double X, double Y, double Z){} пока не знаю нужен или нет
 
 private:
@@ -45,5 +52,9 @@ Vector VectorProduct(Vector vector_1, Vector vector_2) { // vector multiplicatio
     return Vector(vector_1.GetY() * vector_2.GetZ() - vector_1.GetZ() * vector_2.GetY(), // y1 * z2 - z1 * y2
                   vector_1.GetZ() * vector_2.GetX() - vector_1.GetX() * vector_2.GetZ(), // x2 * z1 - x1 * z2
                   vector_1.GetX() * vector_2.GetY() - vector_1.GetY() * vector_2.GetX());// x1 * y2 - x2 * y1
+};
+
+bool VectorsIntersection(Vector vector_1, Vector vector_2){
+
 };
 
