@@ -29,8 +29,9 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             // Пусть Т1 - одна из точек пересечения с первым, Т2 - Одна из точек пересечения со вторым.
             // Если получим Т2 Т2 Т1 Т1 или Т1 Т1 Т2 Т2 => false 
             // в остальных случаях true
-            Vector plane_intesection_vector = VectorPlanesIntersection(triangle_1.GetPlane(), triangle_2.GetPlane());
-            if (triangle_1.TriangleVectorIntersection(plane_intesection_vector) == true and triangle_2.TriangleVectorIntersection(plane_intesection_vector)){
+            Vector plane_intesection_vector = VectorPlanesIntersection(triangle_1.GetPlane(), triangle_2.GetPlane());   // Вектор пересечения из плоскостей
+            if (triangle_1.TriangleVectorIntersection(plane_intesection_vector) == true and 
+                triangle_2.TriangleVectorIntersection(plane_intesection_vector) == true){
                 // проверяем порядок точек
 
             }

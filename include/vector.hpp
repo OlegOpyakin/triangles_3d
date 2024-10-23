@@ -25,9 +25,7 @@ public:
         return sqrt(X_*X_ + Y_*Y_ + Z_*Z_);
     }
 
-    bool PointBelongsVector(Point point){
-        
-    }
+    bool PointBelongsVector(Point point);
     //void operator()(double X, double Y, double Z){} пока не знаю нужен или нет
 
 private:
@@ -54,7 +52,5 @@ Vector VectorProduct(Vector vector_1, Vector vector_2) { // vector multiplicatio
                   vector_1.GetX() * vector_2.GetY() - vector_1.GetY() * vector_2.GetX());// x1 * y2 - x2 * y1
 };
 
-bool VectorsIntersection(Vector vector_1, Vector vector_2){
-
-};
+bool VectorsIntersection(Vector vector_1, Vector vector_2);
 

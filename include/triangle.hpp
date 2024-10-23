@@ -63,8 +63,8 @@ private:
 
 
 bool TrianglesInOnePlanesIntersection(Triangle triangle_1, Triangle triangle_2){
-    if (triangle_1.PointInTriangle(triangle_2.get_point_1()) == true) return true;
-    if (triangle_1.PointInTriangle(triangle_2.get_point_2()) == true) return true;
-    if (triangle_1.PointInTriangle(triangle_2.get_point_3()) == true) return true;
+    if (triangle_1.PointInTriangle(triangle_2.get_point_1())) return true;
+    if (triangle_1.PointInTriangle(triangle_2.get_point_2())) return true;
+    if (triangle_1.PointInTriangle(triangle_2.get_point_3())) return true;
     return false;
 }
