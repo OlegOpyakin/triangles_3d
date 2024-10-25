@@ -47,6 +47,36 @@ Vector VectorPlanesIntersection(Plane plane_1, Plane plane_2){
     return VectorProduct(plane_1.GetVector(), plane_2.GetVector());
 }
 
+Point PointPlanesIntersection(Plane plane_1, Plane plane_2){
+    double A1 = plane_1.GetA();
+    double B1 = plane_1.GetB();
+    double C1 = plane_1.GetC();
+    double D1 = plane_1.GetD();
+    double A2 = plane_2.GetA();
+    double B2 = plane_2.GetB();
+    double C2 = plane_2.GetC();
+    double D2 = plane_2.GetD();
+    double x,y,z;
+
+    if (B1 != 0){ 
+        x = 0;
+        z = ((B2/B1) * D1 - D2)/(C2 - C1 * B2/B1);
+        y = - (C1 * z + D1)/B1;
+    }
+    else if (C1 != 0){
+        x = 0;
+        y = ((C2/C1) * D1 - D2)/(B2 - B1 * C2/C1);
+        z = - (B1 * y + D1)/C1;
+    }
+    else {
+        z = 0;
+        y = ((A2/A1) * D1 - D2)/(B2 - B1 * A2/A1);
+        x = -(B1 * y + D1)/A1;
+    }
+    Point intersection_point(x,y,z);
+    return intersection_point;
+}
+
 bool PlaneEqual(Plane plane_1, Plane plane_2){
     if(plane_1.GetA() / plane_1.GetD() != plane_2.GetA() / plane_2.GetD()) return false;
     if(plane_1.GetB() / plane_1.GetD() != plane_2.GetA() / plane_2.GetD()) return false;

@@ -4,33 +4,28 @@
 
 class Line{
 public:
-    Line(): A_(0), B_(0), C_(0) {}; //DEFAULT
+    Line(): direction_vector(Vector()), start_point(Point()) {}; //DEFAULT
 
-    Line(Point point_start, Point point_end): // vector from start point to end point
-        X_(point_end.GetX() - point_start.GetX()),
-        Y_(point_end.GetY() - point_start.GetY()),
-        Z_(point_end.GetZ() - point_start.GetZ()) {}; 
+    Line(Vector vector, Point point): // vector from start point to end point
+        direction_vector(vector),
+        start_point(point) {}; 
     
-    Line(double X, double Y, double Z): X_(X), Y_(Y), Z_(Z) {}
-
-    double GetX() const { return X_; };
-    double GetY() const { return Y_; };
-    double GetZ() const { return Z_; };
-
-    void Print() {
-        std::clog << "Vector(" << X_ << ";" << Y_ << ";" << Z_ << ")\n";
+    Vector GetDirectionVector(){
+        return direction_vector;
     }
 
-    double Len(){   //*
-        return sqrt(X_*X_ + Y_*Y_ + Z_*Z_);
+    Point GetStartPoint(){
+        return start_point;
     }
 
-    bool PointBelongsVector(Point point){
-        
-    }
     //void operator()(double X, double Y, double Z){} пока не знаю нужен или нет
 
 private:
-    double A_, B_, C_;
+    Vector direction_vector;
+    Point start_point;
 };
+
+bool LinesParallelCheck(Line line_1, Line line_2){
+    return VectorEqual(line_1.GetDirectionVector(), line_2.GetDirectionVector());
+}
 

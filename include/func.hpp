@@ -33,7 +33,6 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             if (triangle_1.TriangleVectorIntersection(plane_intesection_vector) == true and 
                 triangle_2.TriangleVectorIntersection(plane_intesection_vector) == true){
                 // проверяем порядок точек
-
             }
         }
     } 
