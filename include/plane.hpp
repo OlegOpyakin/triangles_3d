@@ -78,12 +78,12 @@ Point PointPlanesIntersection(Plane plane_1, Plane plane_2){
 }
 
 bool PlaneEqual(Plane plane_1, Plane plane_2){
-    if(plane_1.GetA() / plane_1.GetD() != plane_2.GetA() / plane_2.GetD()) return false;
-    if(plane_1.GetB() / plane_1.GetD() != plane_2.GetA() / plane_2.GetD()) return false;
-    if(plane_1.GetC() / plane_1.GetD() != plane_2.GetA() / plane_2.GetD()) return false;
+    if (plane_1.GetD() * plane_2.GetA() != plane_2.GetD() * plane_1.GetA()) return false;
+    if (plane_1.GetD() * plane_2.GetB() != plane_2.GetD() * plane_1.GetB()) return false;
+    if (plane_1.GetD() * plane_2.GetC() != plane_2.GetD() * plane_1.GetC()) return false;
     return true;
 } 
 
 bool PlaneParallel(Plane plane_1, Plane plane_2){
-    return VectorComplanar(plane_1.GetVector(), plane_2.GetVector());
+    return VectorColliniar(plane_1.GetVector(), plane_2.GetVector());
 }

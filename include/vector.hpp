@@ -39,18 +39,15 @@ bool VectorEqual(Vector vector_1, Vector vector_2) {
     return true;
 };
 
-bool VectorComplanar(Vector vector_1, Vector vector_2){
-    if(vector_1.GetX() / vector_1.GetZ() != vector_2.GetX() / vector_2.GetZ()) return false;
-    if(vector_1.GetY() / vector_1.GetZ() != vector_2.GetY() / vector_2.GetZ()) return false;
-    return true;
-
-}
-
 Vector VectorProduct(Vector vector_1, Vector vector_2) { // vector multiplication(returns vector)
     return Vector(vector_1.GetY() * vector_2.GetZ() - vector_1.GetZ() * vector_2.GetY(), // y1 * z2 - z1 * y2
                   vector_1.GetZ() * vector_2.GetX() - vector_1.GetX() * vector_2.GetZ(), // x2 * z1 - x1 * z2
                   vector_1.GetX() * vector_2.GetY() - vector_1.GetY() * vector_2.GetX());// x1 * y2 - x2 * y1
 };
 
-bool VectorsIntersection(Vector vector_1, Vector vector_2);
-
+bool VectorColliniar(Vector vector_1, Vector vector_2){
+    if (VectorProduct(vector_1, vector_2).Len() == 0){
+        return true;
+    }
+    return false;
+};

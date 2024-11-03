@@ -29,6 +29,8 @@ int main(){
     std::cout << "One Plane " << TrianglesInOnePlanesIntersection(triangles[0], triangles[1]) << std::endl;
     std::cout << "Planes parallel " << PlaneParallel(triangles[0].GetPlane(), triangles[1].GetPlane()) << std::endl;
     std::cout << "plane equal " << PlaneEqual(triangles[0].GetPlane(), triangles[1].GetPlane()) << std::endl;
+    triangles[0].GetPlane().Print();
+    triangles[1].GetPlane().Print();
     Vector product = VectorProduct(Vector(1, 2, 3), Vector(4, 5, 6));
     std::cout << "vector product " << product.GetX() << " " << product.GetY() << " " << product.GetZ() << std::endl;
     std::cout << "planes normals 1, 2: " << triangles[0].GetPlane().GetVector().GetX() << " " << triangles[0].GetPlane().GetVector().GetY() << " " <<
@@ -42,6 +44,16 @@ int main(){
 0 1 1
 0 1 2
 0 0 0 
+0 0.9 1.5      
+0 1 1
+0 2 4
+*/
+
+/*
+2    
+0 10 10
+0 10 20
+0 30 30 
 0 0.9 1.5      
 0 1 1
 0 2 4

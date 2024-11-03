@@ -61,7 +61,7 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
 
                 // Алгоритм: между двумя меньшими точками Т1 и Т2 не может лежать точка:
                 // T1, если min_T1 < min_T2
-                // T2, если min_T1 > min_T2\
+                // T2, если min_T1 > min_T2
 
                 // T11 T12 T21 T22
                 if (CorrectPointOrder(t11, t12, t21, t22) and CorrectPointOrder(t21, t22, t11, t12)){
