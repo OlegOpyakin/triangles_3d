@@ -22,6 +22,4 @@ private:
     Point start_point;
 };
 
-bool LinesParallelCheck(Line line_1, Line line_2){
-    return VectorEqual(line_1.GetDirectionVector(), line_2.GetDirectionVector());
-}
+bool LinesParallelCheck(Line line_1, Line line_2)ж
