@@ -1,5 +1,6 @@
 #include "../include/func.hpp"
 #include <vector>
+#include <iostream>
 
 int main(){
     const int max = 1000000;
@@ -20,7 +21,7 @@ int main(){
     }
     for (int i = 0; i < N; i++){
         for (int j = 0; j < i; j++){
-            if (Intersection2Triangles) count++;
+            if (Intersection2Triangles(triangles[i], triangles[j])) count++;
         }
     }
     std::cout << count << std::endl;

@@ -23,18 +23,24 @@ bool CorrectPointOrder(double t11, double t12, double t21, double t22){ // only 
 
 bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
     if (PlaneParallel(triangle_1.GetPlane(), triangle_2.GetPlane())){     // 1-ый случай
+        std::cout << "A0" << std::endl;
         if (PlaneEqual(triangle_1.GetPlane(), triangle_2.GetPlane()) == false){ 
+            std::cout << "A1" << std::endl;
             return false;   // они параллельны, но не совпадают;
         }
         else{
+            std::cout << "A2" << std::endl ;
             return TrianglesInOnePlanesIntersection(triangle_1, triangle_2); // Если в одной плоскости
         }
     }
     else{
+        std::cout << "A3" << std::endl;
         if (triangle_1.AllPointsRightOfPlane(triangle_2.GetPlane())){  
+            std::cout << "A4" << std::endl;
             return false; // точки одного треугольника лежат по одну сторону от плоскости другого
         }
         else{
+            std::cout << "A5" << std::endl;
             // Пересечение треугольников по линии пересечения их плоскостей 
             // Мы уже знаем что их плоскость одного треугольника пересекается со вторым.
             // Пересечем прямую с обоими треугольниками. (проверим что она пересекается с обоими треугольниками)
