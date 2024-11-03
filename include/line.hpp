@@ -9,6 +9,9 @@ public:
     Line(Vector vector, Point point): // vector from start point to end point
         direction_vector(vector),
         start_point(point) {}; 
+    Line(Point start_point, Point end_point):
+        direction_vector(Vector(end_point, start_point)),
+        start_point(start_point){};
     
     Vector GetDirectionVector(){
         return direction_vector;

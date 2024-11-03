@@ -1,7 +1,8 @@
 //#include "point.hpp"
 #include "plane.hpp"
+#include "cut.hpp"
 #include <cmath>
-
+#include "iostream"
 #pragma once
 
 class Triangle{
@@ -51,9 +52,38 @@ public:
         return false;
     }
 
-    bool TriangleVectorIntersection(Vector vector){
+    double test(Point point){
+        return Triangle(point, point_2_, point_3_).Square() + Triangle(point, point_1_, point_2_).Square() +
+        Triangle(point, point_1_, point_3_).Square();
+    }
 
-        
+    std::pair<bool, std::pair<double, double>> TriangleLineIntersection(Line line){
+        // cut 1-2 & line
+        std::pair<double, double> points(0,0);          // t1 and t2
+        std::pair<bool, double> one_point_result;
+        bool result_first_was_write = false;
+
+//      FIX FIX FIX         FIX FIX FIX
+//          разрашить редкарацию cut
+//      FIX FIX FIZ         FIX FIX FIX
+
+        Cut cut(get_point_1(), get_point_2());
+        one_point_result = CutAndLineIntersection(cut, line);
+        if (one_point_result.first) points.first = one_point_result.second;
+
+        // cut 1-3 & line
+        Cut cut1(get_point_1(), get_point_3());
+        one_point_result = CutAndLineIntersection(cut1, line);
+        if (one_point_result.first){
+            if (result_first_was_write) points.second = one_point_result.second;
+            else points.first = one_point_result.second;
+        }
+
+        // cut 2-3 & line
+        Cut cut2(get_point_2(), get_point_3());
+        one_point_result = CutAndLineIntersection(cut2, line);
+        if (one_point_result.first) points.second = one_point_result.second;
+        return std::make_pair(result_first_was_write, points);
     }
 
 private:

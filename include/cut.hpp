@@ -1,5 +1,6 @@
 #include "line.hpp"
 #include <cmath>
+#include <utility>
 #pragma once
 
 class Cut{
@@ -10,6 +11,11 @@ public:
         line(line),
         start_point(start_point),
         end_point(end_point) {}; 
+    Cut(Point start_point, Point end_point): // vector from start point to end point
+        line(start_point, end_point),
+        start_point(start_point),
+        end_point(end_point) {}; 
+    
     
     Line GetLine(){
         return line;
@@ -45,12 +51,10 @@ private:
 };
 
 // Возможно есть более эффективный аллгоритм, поскольку нас интересует не точка а факт пересечения отрезков
-bool CheckCutAndLineIntersection(Cut cut, Line line_2){    
+std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){    
     Line line_1 = cut.GetLine(); 
 
-    if (LinesParallelCheck(line_1, line_2) == true){
-        return false;
-    }
+    if (LinesParallelCheck(line_1, line_2)) return std::make_pair(false, 0);
 
     Point point1 = line_1.GetStartPoint();
     Point point2 = line_2.GetStartPoint();
@@ -71,13 +75,14 @@ bool CheckCutAndLineIntersection(Cut cut, Line line_2){
 
 
     // у нас параметрическое уравнение прямой
-    double t; // параметр первой прямой
+    double t, s; // t - параметр первой прямой (отрезка), s - второй
     
-    t = (y1 - y2 - B1 * ((x1 - x2)/A2))/((A1/A2) - B1);    
+    t = (y1 - y2 - B1 * ((x1 - x2)/A2))/((A1/A2) - B1);   
+    s = (x1 - x2)/A2 + t*A1/A2 ;
     
     double t_min = cut.FindMinArg();
     double t_max = cut.FindMaxArg();
 
-    if (t_min <= t and t <= t_max) return true;
-    else return false;
+    if (t_min <= t and t <= t_max) return std::make_pair(true, s);
+    else return std::make_pair(false, 0);
 }
