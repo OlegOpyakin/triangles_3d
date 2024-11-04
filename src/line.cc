@@ -1,14 +1,14 @@
 #include "line.hpp"
 
 Line::Line(): direction_vector(Vector()),
-              start_point(Point()) {}; //DEFAULT
+              start_point(Point()) {} //DEFAULT
 
 // lene = vector + start point
 Line::Line(Vector vector, Point point): direction_vector(vector),
-                                        start_point(point) {}; 
+                                        start_point(point) {}
 
 Line::Line(Point start_point, Point end_point): direction_vector(Vector(end_point, start_point)),
-                                                start_point(start_point){};
+                                                start_point(start_point){}
     
 Line::~Line(){}
 

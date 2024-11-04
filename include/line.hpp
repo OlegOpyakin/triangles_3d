@@ -22,4 +22,4 @@ private:
     Point start_point;
 };
 
-bool LinesParallelCheck(Line line_1, Line line_2)ж
+bool LinesParallelCheck(Line line_1, Line line_2);

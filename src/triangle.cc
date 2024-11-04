@@ -50,7 +50,7 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
     bool result_first_was_write = false;
 
 //      FIX FIX FIX         FIX FIX FIX
-//          разрашить редкарацию cut
+//          разрашить редекларацию cut
 //      FIX FIX FIZ         FIX FIX FIX
 
     Cut cut(get_point_1(), get_point_2());

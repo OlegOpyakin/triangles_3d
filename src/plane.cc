@@ -1,6 +1,6 @@
 #include "plane.hpp"
 
-Plane::Plane(): A_(0), B_(0), C_(0), D_(0), normal_vector_() {};
+Plane::Plane(): A_(0), B_(0), C_(0), D_(0), normal_vector_() {}
 
 Plane::Plane(Point point_1, Point point_2, Point point_3) {
     Vector vector_1_2(point_1, point_2);
@@ -12,7 +12,7 @@ Plane::Plane(Point point_1, Point point_2, Point point_3) {
     B_ = normal_vector_.GetY();
     C_ = normal_vector_.GetZ();
     D_ = - (A_ * point_1.GetX() + B_ * point_1.GetY() + C_ * point_1.GetZ()); 
-};
+}
 
 Plane::~Plane(){}
 

@@ -1,4 +1,4 @@
-#include "../include/func.hpp"
+#include "func.hpp"
 #include <vector>
 #include <iostream>
 
@@ -24,7 +24,7 @@ int main(){
             if (Intersection2Triangles(triangles[i], triangles[j])) count++;
         }
     }
-    std::cout << count << std::endl;
+    std::cout << "\ncount = " << count << std::endl << std::endl;
     std::cout << "S1 = " << triangles[0].Square() << std::endl;
     std::cout << "S2 = " << triangles[0].test(Point(0, 0.9, 1.5)) << std::endl;
     std::cout << "One Plane " << TrianglesInOnePlanesIntersection(triangles[0], triangles[1]) << std::endl;
@@ -48,6 +48,8 @@ int main(){
 0 0.9 1.5      
 0 1 1
 0 2 4
+
+count = 1
 */
 
 /*
@@ -58,4 +60,57 @@ int main(){
 0 0.9 1.5      
 0 1 1
 0 2 4
+
+count = 0
+*/
+
+/*
+2
+0 0 2
+0 2 0
+2 0 0
+0 3 3
+0 5 5
+0 3 5
+
+count = 0
+*/
+
+
+// ERROR <= 3 meth
+/*
+2
+0 0 2
+0 2 0
+2 0 0
+0 0 2
+0 2 0
+0 0 0
+
+count = 1
+*/
+
+// ERROR <= 3 meth
+/*
+2
+0 0 2
+0 2 0
+2 0 0
+0 1 0
+0 -1 0
+2 0 0
+
+count = 1
+*/
+
+/*
+2
+0 0 2
+0 2 0
+0 0 0
+1 0 2
+1 2 0
+1 0 0
+
+count = 1
 */

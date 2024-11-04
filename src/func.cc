@@ -20,24 +20,19 @@ bool CorrectPointOrder(double t11, double t12, double t21, double t22){ // only 
 
 bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
     if (PlaneParallel(triangle_1.GetPlane(), triangle_2.GetPlane())){     // 1-ый случай
-        std::cout << "A0" << std::endl;
         if (PlaneEqual(triangle_1.GetPlane(), triangle_2.GetPlane()) == false){ 
-            std::cout << "A1" << std::endl;
             return false;   // они параллельны, но не совпадают;
         }
         else{
-            std::cout << "A2" << std::endl ;
-            return TrianglesInOnePlanesIntersection(triangle_1, triangle_2); // Если в одной плоскости
         }
     }
     else{
-        std::cout << "A3" << std::endl;
         if (triangle_1.AllPointsRightOfPlane(triangle_2.GetPlane())){  
-            std::cout << "A4" << std::endl;
             return false; // точки одного треугольника лежат по одну сторону от плоскости другого
         }
         else{
-            std::cout << "A5" << std::endl;
+            std::cout << "PRINT" << std::endl;
+
             // Пересечение треугольников по линии пересечения их плоскостей 
             // Мы уже знаем что их плоскость одного треугольника пересекается со вторым.
             // Пересечем прямую с обоими треугольниками. (проверим что она пересекается с обоими треугольниками)
@@ -53,8 +48,9 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             std::pair<bool, std::pair<double, double>> intersection_points_2 = triangle_2.TriangleLineIntersection(plane_intersection_line); 
             // поскольку в оба случая подавалась одна и та же прямая пересечения плоскостей с одной и той же начальной точкой, то
             // именно ее параметры мы получили в парах => остается лишь сравнеить  порядок точек
-
+            std::cout << intersection_points_1.first << "   " << intersection_points_2.first << std::endl;
             if (intersection_points_1.first and intersection_points_2.first){
+                printf("HERE\n");
                 double t11 = intersection_points_1.second.first;
                 double t12 = intersection_points_1.second.second;
                 double t21 = intersection_points_2.second.first;

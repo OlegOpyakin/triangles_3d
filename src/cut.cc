@@ -1,17 +1,17 @@
 #include "cut.hpp"
 
 
-Cut::Cut(): line(Line()), start_point(Point()), end_point(Point()) {}; //DEFAULT
+Cut::Cut(): line(Line()), start_point(Point()), end_point(Point()) {} //DEFAULT
 
 // cut = line from start point to end point
 Cut::Cut(Line line, Point start_point, Point end_point): line(line),
                                                          start_point(start_point),
-                                                         end_point(end_point) {}; 
+                                                         end_point(end_point) {}
 
 // cut = start point and end points
 Cut::Cut(Point start_point, Point end_point): line(start_point, end_point),
                                               start_point(start_point),
-                                              end_point(end_point) {}; 
+                                              end_point(end_point) {}
 
 Cut::~Cut(){}
 
@@ -56,11 +56,15 @@ std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){
     // у нас параметрическое уравнение прямой
     double t, s; // t - параметр первой прямой (отрезка), s - второй
     
+    // ERROR NaN
+    // нужны 3 случая (а вдруг нули)
     t = (y1 - y2 - B1 * ((x1 - x2)/A2))/((A1/A2) - B1);   
     s = (x1 - x2)/A2 + t*A1/A2 ;
     
     double t_min = cut.FindMinArg();
     double t_max = cut.FindMaxArg();
+
+    std::cout << t_min << "   " << t << "   " << t_max << std::endl;
 
     if (t_min <= t and t <= t_max) return std::make_pair(true, s);
     else return std::make_pair(false, 0);

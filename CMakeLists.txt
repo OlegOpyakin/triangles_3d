@@ -12,25 +12,21 @@ FetchContent_Declare(
 )
 
 # For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
 
-enable_testing()
+#set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+#FetchContent_MakeAvailable(googletest)
 
-add_library(Lib SHARED src/PerfectCache.cc)
+#enable_testing()
 
-add_executable(TESTS src/TESTS.cc)
-add_executable(LFUMAIN src/LFUMain.cc)
-add_executable(PERFECTMAIN src/PerfectCacheMain.cc)
+#add_executable(TESTS src/TESTS.cc)
+add_executable(MAIN src/main.cc src/cut.cc src/func.cc src/line.cc src/plane.cc src/point.cc src/triangle.cc src/vector.cc)
 
-target_include_directories(TESTS PUBLIC include/)
-target_include_directories(LFUMAIN PUBLIC include/)
+#target_include_directories(TESTS PUBLIC include/)
+target_include_directories(MAIN PUBLIC include/)
 
-target_include_directories(PERFECTMAIN PUBLIC include/)
-target_include_directories(Lib PUBLIC include/)
+#target_include_directories(Lib PUBLIC include/)
 
-target_link_libraries(TESTS GTest::gtest_main Lib)
-target_link_libraries(PERFECTMAIN Lib)
+#target_link_libraries(TESTS GTest::gtest_main Lib)
 
-include(GoogleTest)
-gtest_discover_tests(TESTS)
+#include(GoogleTest)
+#gtest_discover_tests(TESTS)
