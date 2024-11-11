@@ -83,10 +83,24 @@ CMakeFiles/MAIN.dir/src/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MAIN.dir/src/main.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/Документы/GitHub/triangles_3d/src/main.cc -o CMakeFiles/MAIN.dir/src/main.cc.s
 
+CMakeFiles/MAIN.dir/src/approx_equal.cc.o: CMakeFiles/MAIN.dir/flags.make
+CMakeFiles/MAIN.dir/src/approx_equal.cc.o: /home/user/Документы/GitHub/triangles_3d/src/approx_equal.cc
+CMakeFiles/MAIN.dir/src/approx_equal.cc.o: CMakeFiles/MAIN.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MAIN.dir/src/approx_equal.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MAIN.dir/src/approx_equal.cc.o -MF CMakeFiles/MAIN.dir/src/approx_equal.cc.o.d -o CMakeFiles/MAIN.dir/src/approx_equal.cc.o -c /home/user/Документы/GitHub/triangles_3d/src/approx_equal.cc
+
+CMakeFiles/MAIN.dir/src/approx_equal.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MAIN.dir/src/approx_equal.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/Документы/GitHub/triangles_3d/src/approx_equal.cc > CMakeFiles/MAIN.dir/src/approx_equal.cc.i
+
+CMakeFiles/MAIN.dir/src/approx_equal.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MAIN.dir/src/approx_equal.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/Документы/GitHub/triangles_3d/src/approx_equal.cc -o CMakeFiles/MAIN.dir/src/approx_equal.cc.s
+
 CMakeFiles/MAIN.dir/src/cut.cc.o: CMakeFiles/MAIN.dir/flags.make
 CMakeFiles/MAIN.dir/src/cut.cc.o: /home/user/Документы/GitHub/triangles_3d/src/cut.cc
 CMakeFiles/MAIN.dir/src/cut.cc.o: CMakeFiles/MAIN.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MAIN.dir/src/cut.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MAIN.dir/src/cut.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MAIN.dir/src/cut.cc.o -MF CMakeFiles/MAIN.dir/src/cut.cc.o.d -o CMakeFiles/MAIN.dir/src/cut.cc.o -c /home/user/Документы/GitHub/triangles_3d/src/cut.cc
 
 CMakeFiles/MAIN.dir/src/cut.cc.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/MAIN.dir/src/cut.cc.s: cmake_force
 CMakeFiles/MAIN.dir/src/func.cc.o: CMakeFiles/MAIN.dir/flags.make
 CMakeFiles/MAIN.dir/src/func.cc.o: /home/user/Документы/GitHub/triangles_3d/src/func.cc
 CMakeFiles/MAIN.dir/src/func.cc.o: CMakeFiles/MAIN.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MAIN.dir/src/func.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MAIN.dir/src/func.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MAIN.dir/src/func.cc.o -MF CMakeFiles/MAIN.dir/src/func.cc.o.d -o CMakeFiles/MAIN.dir/src/func.cc.o -c /home/user/Документы/GitHub/triangles_3d/src/func.cc
 
 CMakeFiles/MAIN.dir/src/func.cc.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/MAIN.dir/src/func.cc.s: cmake_force
 CMakeFiles/MAIN.dir/src/line.cc.o: CMakeFiles/MAIN.dir/flags.make
 CMakeFiles/MAIN.dir/src/line.cc.o: /home/user/Документы/GitHub/triangles_3d/src/line.cc
 CMakeFiles/MAIN.dir/src/line.cc.o: CMakeFiles/MAIN.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MAIN.dir/src/line.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MAIN.dir/src/line.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MAIN.dir/src/line.cc.o -MF CMakeFiles/MAIN.dir/src/line.cc.o.d -o CMakeFiles/MAIN.dir/src/line.cc.o -c /home/user/Документы/GitHub/triangles_3d/src/line.cc
 
 CMakeFiles/MAIN.dir/src/line.cc.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/MAIN.dir/src/line.cc.s: cmake_force
 CMakeFiles/MAIN.dir/src/plane.cc.o: CMakeFiles/MAIN.dir/flags.make
 CMakeFiles/MAIN.dir/src/plane.cc.o: /home/user/Документы/GitHub/triangles_3d/src/plane.cc
 CMakeFiles/MAIN.dir/src/plane.cc.o: CMakeFiles/MAIN.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MAIN.dir/src/plane.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MAIN.dir/src/plane.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MAIN.dir/src/plane.cc.o -MF CMakeFiles/MAIN.dir/src/plane.cc.o.d -o CMakeFiles/MAIN.dir/src/plane.cc.o -c /home/user/Документы/GitHub/triangles_3d/src/plane.cc
 
 CMakeFiles/MAIN.dir/src/plane.cc.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/MAIN.dir/src/plane.cc.s: cmake_force
 CMakeFiles/MAIN.dir/src/point.cc.o: CMakeFiles/MAIN.dir/flags.make
 CMakeFiles/MAIN.dir/src/point.cc.o: /home/user/Документы/GitHub/triangles_3d/src/point.cc
 CMakeFiles/MAIN.dir/src/point.cc.o: CMakeFiles/MAIN.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MAIN.dir/src/point.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MAIN.dir/src/point.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MAIN.dir/src/point.cc.o -MF CMakeFiles/MAIN.dir/src/point.cc.o.d -o CMakeFiles/MAIN.dir/src/point.cc.o -c /home/user/Документы/GitHub/triangles_3d/src/point.cc
 
 CMakeFiles/MAIN.dir/src/point.cc.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/MAIN.dir/src/point.cc.s: cmake_force
 CMakeFiles/MAIN.dir/src/triangle.cc.o: CMakeFiles/MAIN.dir/flags.make
 CMakeFiles/MAIN.dir/src/triangle.cc.o: /home/user/Документы/GitHub/triangles_3d/src/triangle.cc
 CMakeFiles/MAIN.dir/src/triangle.cc.o: CMakeFiles/MAIN.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MAIN.dir/src/triangle.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MAIN.dir/src/triangle.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MAIN.dir/src/triangle.cc.o -MF CMakeFiles/MAIN.dir/src/triangle.cc.o.d -o CMakeFiles/MAIN.dir/src/triangle.cc.o -c /home/user/Документы/GitHub/triangles_3d/src/triangle.cc
 
 CMakeFiles/MAIN.dir/src/triangle.cc.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/MAIN.dir/src/triangle.cc.s: cmake_force
 CMakeFiles/MAIN.dir/src/vector.cc.o: CMakeFiles/MAIN.dir/flags.make
 CMakeFiles/MAIN.dir/src/vector.cc.o: /home/user/Документы/GitHub/triangles_3d/src/vector.cc
 CMakeFiles/MAIN.dir/src/vector.cc.o: CMakeFiles/MAIN.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MAIN.dir/src/vector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MAIN.dir/src/vector.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MAIN.dir/src/vector.cc.o -MF CMakeFiles/MAIN.dir/src/vector.cc.o.d -o CMakeFiles/MAIN.dir/src/vector.cc.o -c /home/user/Документы/GitHub/triangles_3d/src/vector.cc
 
 CMakeFiles/MAIN.dir/src/vector.cc.i: cmake_force
@@ -184,6 +198,7 @@ CMakeFiles/MAIN.dir/src/vector.cc.s: cmake_force
 # Object files for target MAIN
 MAIN_OBJECTS = \
 "CMakeFiles/MAIN.dir/src/main.cc.o" \
+"CMakeFiles/MAIN.dir/src/approx_equal.cc.o" \
 "CMakeFiles/MAIN.dir/src/cut.cc.o" \
 "CMakeFiles/MAIN.dir/src/func.cc.o" \
 "CMakeFiles/MAIN.dir/src/line.cc.o" \
@@ -196,6 +211,7 @@ MAIN_OBJECTS = \
 MAIN_EXTERNAL_OBJECTS =
 
 MAIN: CMakeFiles/MAIN.dir/src/main.cc.o
+MAIN: CMakeFiles/MAIN.dir/src/approx_equal.cc.o
 MAIN: CMakeFiles/MAIN.dir/src/cut.cc.o
 MAIN: CMakeFiles/MAIN.dir/src/func.cc.o
 MAIN: CMakeFiles/MAIN.dir/src/line.cc.o
@@ -205,7 +221,7 @@ MAIN: CMakeFiles/MAIN.dir/src/triangle.cc.o
 MAIN: CMakeFiles/MAIN.dir/src/vector.cc.o
 MAIN: CMakeFiles/MAIN.dir/build.make
 MAIN: CMakeFiles/MAIN.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable MAIN"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/Документы/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable MAIN"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MAIN.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

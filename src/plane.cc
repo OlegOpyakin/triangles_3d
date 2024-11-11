@@ -21,7 +21,12 @@ double Plane::GetB() const { return B_; };
 double Plane::GetC() const { return C_; };
 double Plane::GetD() const { return D_; };
 
-double Plane::ValuePlaneEquel(Point point){
+double Plane::SetA(double A) { A_ = A; };
+double Plane::SetB(double B) { B_ = B; };
+double Plane::SetC(double C) { C_ = C; };
+double Plane::SetD(double D) { D_ = D; };
+
+double Plane::ValuePlaneEqual(Point point){
     return A_ * point.GetX() + B_ * point.GetY() + C_ * point.GetZ() + D_;
 }
 

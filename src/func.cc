@@ -24,6 +24,8 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             return false;   // они параллельны, но не совпадают;
         }
         else{
+            //FUCK
+            return TrianglesInOnePlanesIntersection(triangle_1, triangle_2);   
         }
     }
     else{

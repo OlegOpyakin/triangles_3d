@@ -38,7 +38,21 @@ int main(){
                                             triangles[0].GetPlane().GetVector().GetZ() << " || " << 
                                             triangles[1].GetPlane().GetVector().GetX() << " " << triangles[1].GetPlane().GetVector().GetY() << " " <<
                                             triangles[1].GetPlane().GetVector().GetZ() <<std::endl;
+
+    std::cout << "\ncut and line intersection test" << std::endl;
+    Line line1(Point(0, 0, 0), Point(1 , 1, 0));
+    printf("line\n");
+    line1.GetDirectionVector().Print();
+    line1.GetStartPoint().Print();
+    printf("cut\n");
+    Cut(Point(3,-1,0), Point(-1,1,0)).GetLine().GetDirectionVector().Print();
+    Cut(Point(3,-1,0), Point(-1,1,0)).GetLine().GetStartPoint().Print();
+    std::pair<bool, double> res1 = CutAndLineIntersection(Cut(Point(3, -1, 0), Point(-1, 1, 0)), line1);
+    std::cout << "result: " << res1.first <<  " == " << res1.second << std::endl;
+
+
 }
+
 
 /*
 2    

@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/user/Документы/GitHub/triangles_3d/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -84,6 +94,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -117,6 +172,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Lib
+
+# Build rule for target.
+Lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Lib
+.PHONY : Lib
+
+# fast build rule for target.
+Lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/build
+.PHONY : Lib/fast
+
+#=============================================================================
 # Target rules for targets named MAIN
 
 # Build rule for target.
@@ -129,12 +197,129 @@ MAIN/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/build
 .PHONY : MAIN/fast
 
+#=============================================================================
+# Target rules for targets named TESTS
+
+# Build rule for target.
+TESTS: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TESTS
+.PHONY : TESTS
+
+# fast build rule for target.
+TESTS/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/build
+.PHONY : TESTS/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+src/TESTS.o: src/TESTS.cc.o
+.PHONY : src/TESTS.o
+
+# target to build an object file
+src/TESTS.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/TESTS.cc.o
+.PHONY : src/TESTS.cc.o
+
+src/TESTS.i: src/TESTS.cc.i
+.PHONY : src/TESTS.i
+
+# target to preprocess a source file
+src/TESTS.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/TESTS.cc.i
+.PHONY : src/TESTS.cc.i
+
+src/TESTS.s: src/TESTS.cc.s
+.PHONY : src/TESTS.s
+
+# target to generate assembly for a file
+src/TESTS.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/TESTS.cc.s
+.PHONY : src/TESTS.cc.s
+
+src/approx_equal.o: src/approx_equal.cc.o
+.PHONY : src/approx_equal.o
+
+# target to build an object file
+src/approx_equal.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/approx_equal.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/approx_equal.cc.o
+.PHONY : src/approx_equal.cc.o
+
+src/approx_equal.i: src/approx_equal.cc.i
+.PHONY : src/approx_equal.i
+
+# target to preprocess a source file
+src/approx_equal.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/approx_equal.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/approx_equal.cc.i
+.PHONY : src/approx_equal.cc.i
+
+src/approx_equal.s: src/approx_equal.cc.s
+.PHONY : src/approx_equal.s
+
+# target to generate assembly for a file
+src/approx_equal.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/approx_equal.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/approx_equal.cc.s
+.PHONY : src/approx_equal.cc.s
+
 src/cut.o: src/cut.cc.o
 .PHONY : src/cut.o
 
 # target to build an object file
 src/cut.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/cut.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/cut.cc.o
 .PHONY : src/cut.cc.o
 
 src/cut.i: src/cut.cc.i
@@ -143,6 +328,7 @@ src/cut.i: src/cut.cc.i
 # target to preprocess a source file
 src/cut.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/cut.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/cut.cc.i
 .PHONY : src/cut.cc.i
 
 src/cut.s: src/cut.cc.s
@@ -151,6 +337,7 @@ src/cut.s: src/cut.cc.s
 # target to generate assembly for a file
 src/cut.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/cut.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/cut.cc.s
 .PHONY : src/cut.cc.s
 
 src/func.o: src/func.cc.o
@@ -159,6 +346,7 @@ src/func.o: src/func.cc.o
 # target to build an object file
 src/func.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/func.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/func.cc.o
 .PHONY : src/func.cc.o
 
 src/func.i: src/func.cc.i
@@ -167,6 +355,7 @@ src/func.i: src/func.cc.i
 # target to preprocess a source file
 src/func.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/func.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/func.cc.i
 .PHONY : src/func.cc.i
 
 src/func.s: src/func.cc.s
@@ -175,6 +364,7 @@ src/func.s: src/func.cc.s
 # target to generate assembly for a file
 src/func.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/func.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/func.cc.s
 .PHONY : src/func.cc.s
 
 src/line.o: src/line.cc.o
@@ -183,6 +373,7 @@ src/line.o: src/line.cc.o
 # target to build an object file
 src/line.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/line.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/line.cc.o
 .PHONY : src/line.cc.o
 
 src/line.i: src/line.cc.i
@@ -191,6 +382,7 @@ src/line.i: src/line.cc.i
 # target to preprocess a source file
 src/line.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/line.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/line.cc.i
 .PHONY : src/line.cc.i
 
 src/line.s: src/line.cc.s
@@ -199,6 +391,7 @@ src/line.s: src/line.cc.s
 # target to generate assembly for a file
 src/line.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/line.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/line.cc.s
 .PHONY : src/line.cc.s
 
 src/main.o: src/main.cc.o
@@ -206,6 +399,7 @@ src/main.o: src/main.cc.o
 
 # target to build an object file
 src/main.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/src/main.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/main.cc.o
 .PHONY : src/main.cc.o
 
@@ -214,6 +408,7 @@ src/main.i: src/main.cc.i
 
 # target to preprocess a source file
 src/main.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/src/main.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/main.cc.i
 .PHONY : src/main.cc.i
 
@@ -222,6 +417,7 @@ src/main.s: src/main.cc.s
 
 # target to generate assembly for a file
 src/main.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/src/main.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/main.cc.s
 .PHONY : src/main.cc.s
 
@@ -231,6 +427,7 @@ src/plane.o: src/plane.cc.o
 # target to build an object file
 src/plane.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/plane.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/plane.cc.o
 .PHONY : src/plane.cc.o
 
 src/plane.i: src/plane.cc.i
@@ -239,6 +436,7 @@ src/plane.i: src/plane.cc.i
 # target to preprocess a source file
 src/plane.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/plane.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/plane.cc.i
 .PHONY : src/plane.cc.i
 
 src/plane.s: src/plane.cc.s
@@ -247,6 +445,7 @@ src/plane.s: src/plane.cc.s
 # target to generate assembly for a file
 src/plane.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/plane.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/plane.cc.s
 .PHONY : src/plane.cc.s
 
 src/point.o: src/point.cc.o
@@ -255,6 +454,7 @@ src/point.o: src/point.cc.o
 # target to build an object file
 src/point.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/point.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/point.cc.o
 .PHONY : src/point.cc.o
 
 src/point.i: src/point.cc.i
@@ -263,6 +463,7 @@ src/point.i: src/point.cc.i
 # target to preprocess a source file
 src/point.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/point.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/point.cc.i
 .PHONY : src/point.cc.i
 
 src/point.s: src/point.cc.s
@@ -271,6 +472,7 @@ src/point.s: src/point.cc.s
 # target to generate assembly for a file
 src/point.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/point.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/point.cc.s
 .PHONY : src/point.cc.s
 
 src/triangle.o: src/triangle.cc.o
@@ -279,6 +481,7 @@ src/triangle.o: src/triangle.cc.o
 # target to build an object file
 src/triangle.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/triangle.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/triangle.cc.o
 .PHONY : src/triangle.cc.o
 
 src/triangle.i: src/triangle.cc.i
@@ -287,6 +490,7 @@ src/triangle.i: src/triangle.cc.i
 # target to preprocess a source file
 src/triangle.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/triangle.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/triangle.cc.i
 .PHONY : src/triangle.cc.i
 
 src/triangle.s: src/triangle.cc.s
@@ -295,6 +499,7 @@ src/triangle.s: src/triangle.cc.s
 # target to generate assembly for a file
 src/triangle.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/triangle.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/triangle.cc.s
 .PHONY : src/triangle.cc.s
 
 src/vector.o: src/vector.cc.o
@@ -303,6 +508,7 @@ src/vector.o: src/vector.cc.o
 # target to build an object file
 src/vector.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/vector.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/vector.cc.o
 .PHONY : src/vector.cc.o
 
 src/vector.i: src/vector.cc.i
@@ -311,6 +517,7 @@ src/vector.i: src/vector.cc.i
 # target to preprocess a source file
 src/vector.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/vector.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/vector.cc.i
 .PHONY : src/vector.cc.i
 
 src/vector.s: src/vector.cc.s
@@ -319,6 +526,7 @@ src/vector.s: src/vector.cc.s
 # target to generate assembly for a file
 src/vector.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/vector.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/vector.cc.s
 .PHONY : src/vector.cc.s
 
 # Help Target
@@ -328,8 +536,25 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
+	@echo "... Lib"
 	@echo "... MAIN"
+	@echo "... TESTS"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
+	@echo "... src/TESTS.o"
+	@echo "... src/TESTS.i"
+	@echo "... src/TESTS.s"
+	@echo "... src/approx_equal.o"
+	@echo "... src/approx_equal.i"
+	@echo "... src/approx_equal.s"
 	@echo "... src/cut.o"
 	@echo "... src/cut.i"
 	@echo "... src/cut.s"

@@ -15,7 +15,13 @@ public:
     double GetC() const;
     double GetD() const;
 
-    double ValuePlaneEquel(Point point);
+    double SetA(double A);
+    double SetB(double B);
+    double SetC(double C);
+    double SetD(double D);
+
+
+    double ValuePlaneEqual(Point point);
     Vector GetVector() const;
 
     void Print();

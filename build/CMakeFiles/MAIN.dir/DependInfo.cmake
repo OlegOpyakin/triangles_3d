@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/user/Документы/GitHub/triangles_3d/src/approx_equal.cc" "CMakeFiles/MAIN.dir/src/approx_equal.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/approx_equal.cc.o.d"
   "/home/user/Документы/GitHub/triangles_3d/src/cut.cc" "CMakeFiles/MAIN.dir/src/cut.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/cut.cc.o.d"
   "/home/user/Документы/GitHub/triangles_3d/src/func.cc" "CMakeFiles/MAIN.dir/src/func.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/func.cc.o.d"
   "/home/user/Документы/GitHub/triangles_3d/src/line.cc" "CMakeFiles/MAIN.dir/src/line.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/line.cc.o.d"

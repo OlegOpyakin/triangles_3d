@@ -1,4 +1,6 @@
 #include "triangle.hpp"
+#include "approx_equal.hpp"
+#include <iomanip>
 
 Triangle::Triangle(Point point_1, Point point_2, Point point_3): point_1_(point_1),
                                                                  point_2_(point_2),
@@ -15,10 +17,16 @@ Point Triangle::get_point_2() const{return point_2_;}
 
 Point Triangle::get_point_3() const{return point_3_;}
 
+// А что если треугольник касается этой самой плоскости?
 bool Triangle::AllPointsRightOfPlane(Plane plane){
-    if (plane.ValuePlaneEquel(point_1_) != plane.ValuePlaneEquel(point_2_)) return false;
-    if (plane.ValuePlaneEquel(point_1_) != plane.ValuePlaneEquel(point_3_)) return false;
-    return true;
+    std::cout << "\n" << plane.ValuePlaneEqual(point_1_) << "; "  << plane.ValuePlaneEqual(point_2_) << "; "  << plane.ValuePlaneEqual(point_3_) << std::endl; 
+    if ((plane.ValuePlaneEqual(point_1_) > 0) and (plane.ValuePlaneEqual(point_2_) > 0) and (plane.ValuePlaneEqual(point_3_) > 0)){
+            return true;
+    }
+    if ((plane.ValuePlaneEqual(point_1_) < 0) and (plane.ValuePlaneEqual(point_2_) < 0) and (plane.ValuePlaneEqual(point_3_) < 0)){
+            return true;
+    } 
+    return false;
 }
 
 double Triangle::HalfPerimeter(){ 
@@ -30,11 +38,14 @@ double Triangle::Square(){
            (HalfPerimeter() - Vector(point_1_, point_3_).Len()) * (HalfPerimeter() - Vector(point_2_, point_3_).Len()));
 }
 
+
+// NEED FIX
+// ACCURACY 10^{-14}
+// MB ERRORS
 bool Triangle::PointInTriangle(Point point){  
-    if (Square() == Triangle(point, point_2_, point_3_).Square() + Triangle(point, point_1_, point_2_).Square() +
-        Triangle(point, point_1_, point_3_).Square()) {
-            return true;
-        }
+    double new_square = Triangle(point, point_2_, point_3_).Square() + Triangle(point, point_1_, point_2_).Square() +
+                        Triangle(point, point_1_, point_3_).Square();
+    if (ApproxEqual(Square(), new_square)) return true;
     return false;
 }
 
