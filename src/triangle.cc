@@ -19,7 +19,6 @@ Point Triangle::get_point_3() const{return point_3_;}
 
 // А что если треугольник касается этой самой плоскости?
 bool Triangle::AllPointsRightOfPlane(Plane plane){
-    std::cout << "\n" << plane.ValuePlaneEqual(point_1_) << "; "  << plane.ValuePlaneEqual(point_2_) << "; "  << plane.ValuePlaneEqual(point_3_) << std::endl; 
     if ((plane.ValuePlaneEqual(point_1_) > 0) and (plane.ValuePlaneEqual(point_2_) > 0) and (plane.ValuePlaneEqual(point_3_) > 0)){
             return true;
     }
@@ -66,14 +65,22 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
 
     Cut cut(get_point_1(), get_point_2());
     one_point_result = CutAndLineIntersection(cut, line);
-    if (one_point_result.first) points.first = one_point_result.second;
+    if (one_point_result.first){
+        points.first = one_point_result.second;
+        result_first_was_write = true;
+    }
 
     // cut 1-3 & line
     Cut cut1(get_point_1(), get_point_3());
     one_point_result = CutAndLineIntersection(cut1, line);
     if (one_point_result.first){
-        if (result_first_was_write) points.second = one_point_result.second;
-        else points.first = one_point_result.second;
+        if (result_first_was_write){
+            points.second = one_point_result.second;
+        }
+        else{
+            points.first = one_point_result.second;
+            result_first_was_write = true;
+        }
     }
 
     // cut 2-3 & line

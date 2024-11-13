@@ -91,18 +91,20 @@ double Cut::FindMaxArg(){
             s = ((x2 -x1) * B1 - (y2 - y1) * A1) / denom;
         }
 
-        std::cout << "t = " << t << ";   s = " << s << std::endl;
-
         double t_min = cut.FindMinArg();
         double t_max = cut.FindMaxArg();
 
-        std::cout << t_min << "   " << t << "   " << t_max << std::endl;
+// код написан так что min всегда = 0, а max = 1;
+/*
         if (t_min <= t_max){
             if (t_min <= t and t <= t_max) return std::make_pair(true, s);
-            else std:: cout << "\n\n" << t_min << "   " << t << "   " << t_max << std::endl; return std::make_pair(false, 0);
+            else return std::make_pair(false, 0);
         }
         else{
             if (t_max <= t and t <= t_min) return std::make_pair(true, s);
-            else std:: cout << "\n\n" << t_min << "   " << t << "   " << t_max << std::endl; return std::make_pair(false, 0);
+            else return std::make_pair(false, 0);
         }
+*/
+        if (-1 <= t and t <= 1) return std::make_pair(true, s);
+        else return std::make_pair(false, 0);
     }

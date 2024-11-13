@@ -129,7 +129,11 @@ protected:
     Triangle* triangle1;
     Triangle* triangle2;
     Triangle* triangle3;
+
     Plane* plane;
+
+    Line* line1;
+    Line* line2;
 
     void SetUp() override {
         p11 = new Point(0, 0, 0);
@@ -154,6 +158,9 @@ protected:
         triangle1 = new Triangle(*p11, *p12, *p13);
         triangle2 = new Triangle(*p21, *p22, *p23);
         triangle3 = new Triangle(*p31, *p32, *p33);
+
+        line1 = new Line(*p31, *p32);
+        line2 = new Line(*p21, *p23);
 
         plane = new Plane(*plane_point1, *plane_point2, *plane_point3);
     }
@@ -365,8 +372,17 @@ TEST_F(CutAndLineTest, CutAndLineIntersection) {
     EXPECT_EQ(CutAndLineIntersection(*cut1, *line4).second, 1);
 }
 
+// --------- Tests for Triangle and Line Intersection ----------- 
 
 
+TEST_F(TriangleTest, TriangleLineIntersection) {
+    EXPECT_FALSE(triangle1->TriangleLineIntersection(*line1).first);
+    EXPECT_TRUE(triangle1->TriangleLineIntersection(*line2).first);
+    EXPECT_EQ(triangle1->TriangleLineIntersection(*line2).second.first, 1);     // RANDOM VALUE
+    EXPECT_EQ(triangle1->TriangleLineIntersection(*line2).second.second, 1);    // RANDOM VALUE
+}
+
+//TEST_F(CorrectPointOrder)
 
 
 // ------------------- Time for Million Elements test -------------------

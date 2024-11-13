@@ -33,8 +33,6 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             return false; // точки одного треугольника лежат по одну сторону от плоскости другого
         }
         else{
-            std::cout << "PRINT" << std::endl;
-
             // Пересечение треугольников по линии пересечения их плоскостей 
             // Мы уже знаем что их плоскость одного треугольника пересекается со вторым.
             // Пересечем прямую с обоими треугольниками. (проверим что она пересекается с обоими треугольниками)
@@ -50,9 +48,7 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             std::pair<bool, std::pair<double, double>> intersection_points_2 = triangle_2.TriangleLineIntersection(plane_intersection_line); 
             // поскольку в оба случая подавалась одна и та же прямая пересечения плоскостей с одной и той же начальной точкой, то
             // именно ее параметры мы получили в парах => остается лишь сравнеить  порядок точек
-            std::cout << intersection_points_1.first << "   " << intersection_points_2.first << std::endl;
             if (intersection_points_1.first and intersection_points_2.first){
-                printf("HERE\n");
                 double t11 = intersection_points_1.second.first;
                 double t12 = intersection_points_1.second.second;
                 double t21 = intersection_points_2.second.first;
