@@ -21,8 +21,7 @@ Point Cut::GetStartPoint () const { return start_point; }
 
 Point Cut::GetEndPoint () const { return end_point; }
 
-
-// ХЗ откуда тут минус - НУЖЕН И ТОЧКА
+/*
 double Cut::FindMinArg(){
     // x = x_0  + A * t => t = (x - x_0)/A
     if (line.GetDirectionVector().GetX() != 0){
@@ -48,6 +47,7 @@ double Cut::FindMaxArg(){
         return -(end_point.GetZ() - line.GetStartPoint().GetZ())/line.GetDirectionVector().GetZ();
     }
 }
+*/
 
     std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){    
 
@@ -73,14 +73,14 @@ double Cut::FindMaxArg(){
         double B2 = vector2.GetY();
         double C2 = vector2.GetZ();
 
-        // у нас параметрическое уравнение прямой
-        double t, s; // t - параметр первой прямой (отрезка), s - второй
+        // We have a parametric equation of a straight line
+        double t, s; // t is the parameter of the first straight line (segment), s is the second
         
-        // проверим на параллельность
+        // let's check for parallelism
         double denom = A1 * B2 + A2 * B1;
         if (denom == 0){
             denom = B1 * C2 - B2 * C1;
-            if (denom == 0) return std::make_pair(false, 0); // параллельны
+            if (denom == 0) return std::make_pair(false, 0); // parallel
             else{
                 t = ((x2 - x1) * B2 - (y2 - y1) * A2) / denom;
                 s = ((x2 - x1) * B1 - (y2 - y1) * A1) / denom;
@@ -91,10 +91,11 @@ double Cut::FindMaxArg(){
             s = ((x2 -x1) * B1 - (y2 - y1) * A1) / denom;
         }
 
-        double t_min = cut.FindMinArg();
-        double t_max = cut.FindMaxArg();
+        //double t_min = cut.FindMinArg();
+        //double t_max = cut.FindMaxArg();
 
-// код написан так что min всегда = 0, а max = 1;
+// the code is written so that min always = 0 and max = 1;
+
 /*
         if (t_min <= t_max){
             if (t_min <= t and t <= t_max) return std::make_pair(true, s);

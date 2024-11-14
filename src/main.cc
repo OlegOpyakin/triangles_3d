@@ -19,9 +19,10 @@ int main(){
         Point point3(x, y, z);
         triangles.push_back(Triangle(point1, point2, point3));
     }
-    for (int i = 0; i < 10000; i++){
-        for (int j = 0; j < 10000; j++){
-            if (Intersection2Triangles(triangles[0], triangles[1])) count++;
+
+    for (int i = 0; i < N; i++){
+        for (int j = 0; j < i; j++){
+            if (Intersection2Triangles(triangles[i], triangles[j])) count++;
         }
     }
     std::cout << "\ncount = " << count << std::endl << std::endl;

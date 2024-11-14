@@ -3,7 +3,7 @@
 Line::Line(): direction_vector(Vector()),
               start_point(Point()) {} //DEFAULT
 
-// lene = vector + start point
+// line = vector + start point
 Line::Line(Vector vector, Point point): direction_vector(vector),
                                         start_point(point) {}
 

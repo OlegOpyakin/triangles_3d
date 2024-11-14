@@ -247,6 +247,263 @@ protected:
     }
 };
 
+
+class PointPoint : public ::testing::Test{
+protected:
+    Triangle* test_1_a;
+    Triangle* test_1_b;
+
+    Triangle* test_2_a;
+    Triangle* test_2_b;
+
+    void SetUp() override {
+        // true
+        test_1_a = new Triangle(Point(0, 0, 0), Point(0, 0, 0), Point(0, 0, 0));
+        test_1_b = new Triangle(Point(0, 0, 0), Point(0, 0, 0), Point(0, 0, 0));
+        // false    //ERROR
+        test_2_a = new Triangle(Point(0, 0, 0), Point(0, 0, 0), Point(0, 0, 0)); 
+        test_2_b = new Triangle(Point(1, 1, 1), Point(1, 1, 1), Point(1, 1, 1));
+    }
+    void TearDown() override {
+        delete test_1_a;
+        delete test_1_b;
+
+        delete test_2_a;
+        delete test_2_b;
+    }
+};
+
+class CutCut : public ::testing::Test{
+protected:
+    Triangle* test_3_a;
+    Triangle* test_3_b;
+
+    Triangle* test_4_a;
+    Triangle* test_4_b;
+
+    Triangle* test_5_a;
+    Triangle* test_5_b;
+
+    Triangle* test_6_a;
+    Triangle* test_6_b;
+
+    void SetUp() override {
+        // parallel cut cut
+        // true
+        test_3_a = new Triangle(Point(0, 0, 0), Point(1, 0, 0), Point(-1, 0, 0));
+        test_3_b = new Triangle(Point(0, 0, 0), Point(2, 0, 0), Point(-2, 0, 0));
+        // false
+        test_4_a = new Triangle(Point(0, 0, 0), Point(1, 0, 0), Point(-1, 0, 0));
+        test_4_b = new Triangle(Point(0, 0, 1), Point(2, 0, 1), Point(-2, 0, 1));
+
+        // not parallel cut cut
+        // true
+        test_5_a = new Triangle(Point(0, 0, 0), Point(1, 0, 0), Point(-1, 0, 0));
+        test_5_b = new Triangle(Point(0, 0, 0), Point(0, 1, 0), Point(0, -1, 0));
+        // false
+        test_6_a = new Triangle(Point(0, 0, 0), Point(1, 0, 0), Point(-1, 0, 0));
+        test_6_b = new Triangle(Point(0, 0, 1), Point(0, 1, 1), Point(0, -1, 1));
+    }
+
+    void TearDown() override {
+        delete test_3_a;
+        delete test_3_b;
+
+        delete test_4_a;
+        delete test_4_b;
+
+        delete test_5_a;
+        delete test_5_b;
+
+        delete test_6_a;
+        delete test_6_b;
+    }
+};    
+
+class PointCut : public ::testing::Test{
+protected:
+    Triangle* test_7_a;
+    Triangle* test_7_b;
+
+    Triangle* test_8_a;
+    Triangle* test_8_b;
+    void SetUp() override {
+        // true
+        test_7_a = new Triangle(Point(0, 0, 0), Point(0, 0, 0), Point(0, 0, 0));
+        test_7_b = new Triangle(Point(-1, 0, 0), Point(1, 0, 0), Point(0, 0, 0));
+        // false
+        test_8_a = new Triangle(Point(0, 0, 0), Point(0, 0, 0), Point(0, 0, 0));
+        test_8_b = new Triangle(Point(-1, 0, 1), Point(1, 0, 1), Point(0, 0, 1));
+    }
+    void TearDown() override {
+        delete test_7_a;
+        delete test_7_b;
+
+        delete test_8_a;
+        delete test_8_b;
+    }
+};
+
+class PointTriangle : public ::testing::Test{
+protected:
+    Triangle* test_9_a;
+    Triangle* test_9_b;
+
+    Triangle* test_10_a;
+    Triangle* test_10_b;
+    void SetUp() override {
+        // true
+        test_9_a = new Triangle(Point(1, 1, 0), Point(1, 1, 0), Point(1, 1, 0));
+        test_9_b = new Triangle(Point(3, 0, 0), Point(0, 4, 0), Point(0, 0, 0));
+        // false (WHY)
+        test_10_a = new Triangle(Point(-1, -1, 0), Point(-1, -1, 0), Point(-1, -1, 0));
+        test_10_b = new Triangle(Point(3, 0, 0), Point(0, 4, 0), Point(0, 0, 0));
+    }
+    void TearDown() override {
+        delete test_9_a;
+        delete test_9_b;
+
+        delete test_10_a;
+        delete test_10_b;
+    }
+};
+
+class CutTriangle : public ::testing::Test{
+protected:
+
+    Triangle* test_11_a;
+    Triangle* test_11_b;
+
+    Triangle* test_12_a;
+    Triangle* test_12_b;
+
+    Triangle* test_13_a;
+    Triangle* test_13_b;
+
+    Triangle* test_14_a;
+    Triangle* test_14_b;
+
+    void SetUp() override {  
+        // cut and triangle
+        // true // ERROR (WHY)
+        test_11_a = new Triangle(Point(1, -10, 0), Point(1, 10, 0), Point(1, 0, 0));
+        test_11_b = new Triangle(Point(3, 0, 0), Point(0, 4, 0), Point(0, 0, 0));
+        // false
+        test_12_a = new Triangle(Point(1, -10, 1), Point(1, 10, 1), Point(1, 0, 1));
+        test_12_b = new Triangle(Point(3, 0, 0), Point(0, 4, 0), Point(0, 0, 0));
+        
+        // cut and triangle (hard)  
+        // true // ERROR (WHY)
+        test_13_a = new Triangle(Point(1, -1, 0), Point(1, 1, 0), Point(1, -1, 0));
+        test_13_b = new Triangle(Point(3, 0, 0), Point(0, 4, 0), Point(0, 0, 0));
+        // false
+        test_14_a = new Triangle(Point(1, -1, 1), Point(1, 1, 1), Point(1, -1, 1));
+        test_14_b = new Triangle(Point(3, 0, 0), Point(0, 4, 0), Point(0, 0, 0));
+    }
+    void TearDown() override {
+        delete test_11_a;
+        delete test_11_b;
+
+        delete test_12_a;
+        delete test_12_b;
+
+        delete test_13_a;
+        delete test_13_b;
+
+        delete test_14_a;
+        delete test_14_b;
+    }
+};
+
+class Triangles : public ::testing::Test{
+protected:
+    Triangle* test_15_a;
+    Triangle* test_15_b;
+
+    Triangle* test_16_a;
+    Triangle* test_16_b;
+
+    Triangle* test_17_a;
+    Triangle* test_17_b;
+
+    Triangle* test_18_a;
+    Triangle* test_18_b;
+
+    Triangle* test_19_a;
+    Triangle* test_19_b;
+
+    Triangle* test_20_a;
+    Triangle* test_20_b;
+
+    Triangle* test_21_a;
+    Triangle* test_21_b;
+
+    Triangle* test_22_a;
+    Triangle* test_22_b;
+
+    void SetUp() override {  
+        // true
+        test_15_a = new Triangle(Point(0, 1, 1), Point(0, 1, 2), Point(0, 0, 0));
+        test_15_b = new Triangle(Point(0, 2, 4), Point(0, 1, 1), Point(0, 0.9, 1.5));
+
+        // false
+        test_16_a = new Triangle(Point(0, 10, 10), Point(0, 10, 20), Point(0, 30, 30));
+        test_16_b = new Triangle(Point(0, 2, 4), Point(0, 1, 1), Point(0, 0.9, 1.5));
+
+        // false
+        test_17_a = new Triangle(Point(0, 0, 2), Point(0, 2, 0), Point(2, 0, 0));
+        test_17_b = new Triangle(Point(0, 3, 3), Point(0, 5, 5), Point(0, 3, 5));
+
+        // true // ERROR
+        test_18_a = new Triangle(Point(0, 0, 2), Point(0, 2, 0), Point(2, 0, 0));
+        test_18_b = new Triangle(Point(0, 0, 2), Point(0, 2, 0), Point(0, 0, 0));
+
+        // true
+        test_19_a = new Triangle(Point(0, 0, 2), Point(0, 2, 0), Point(2, 0, 0));
+        test_19_b = new Triangle(Point(0, 1, 0), Point(0, -1, 0), Point(2, 0, 0));
+
+        // true
+        test_20_a = new Triangle(Point(0, 0, 2), Point(0, 2, 0), Point(2, 0, 0));
+        test_20_b = new Triangle(Point(0, 1, 0), Point(0, -1, 0), Point(1, 1, 0));
+
+        // true // ERROR 
+        test_21_a = new Triangle(Point(0, 0, 2), Point(0, 2, 0), Point(2, 0, 0));
+        test_21_b = new Triangle(Point(0, -1, 0), Point(3, 0, 0), Point(0, 3, 0));
+
+        // false
+        test_22_a = new Triangle(Point(0, 0, 2), Point(0, 2, 0), Point(0, 0, 0));
+        test_22_b = new Triangle(Point(1, 0, 2), Point(1, 2, 0), Point(1, 0, 0));
+
+
+    }
+
+    void TearDown() override {
+        delete test_15_a;
+        delete test_15_b;
+
+        delete test_16_a;
+        delete test_16_b;
+
+        delete test_17_a;
+        delete test_17_b;
+
+        delete test_18_a;
+        delete test_18_b;
+
+        delete test_19_a;
+        delete test_19_b;
+
+        delete test_20_a;
+        delete test_20_b;
+
+        delete test_21_a;
+        delete test_21_b;
+
+        delete test_22_a;
+        delete test_22_b;
+    }
+};
+
 // ---------------------- Test for Vector Product ----------------------
 
 TEST_F(VectorTest, VectorProduct) {
@@ -360,11 +617,6 @@ TEST_F(CutAndLineTest, LinesParallel) {
     EXPECT_FALSE(LinesParallelCheck(*line1, *line3));
 }
 
-TEST_F(CutAndLineTest, MinMaxArgCut) {
-    EXPECT_EQ(cut1->FindMaxArg(), 1);
-    EXPECT_EQ(cut1->FindMinArg(), 0);
-}
-
 TEST_F(CutAndLineTest, CutAndLineIntersection) {
     EXPECT_FALSE(CutAndLineIntersection(*cut1, *line2).first);
     EXPECT_FALSE(CutAndLineIntersection(*cut1, *line3).first);
@@ -378,11 +630,52 @@ TEST_F(CutAndLineTest, CutAndLineIntersection) {
 TEST_F(TriangleTest, TriangleLineIntersection) {
     EXPECT_FALSE(triangle1->TriangleLineIntersection(*line1).first);
     EXPECT_TRUE(triangle1->TriangleLineIntersection(*line2).first);
-    EXPECT_EQ(triangle1->TriangleLineIntersection(*line2).second.first, 1);     // RANDOM VALUE
-    EXPECT_EQ(triangle1->TriangleLineIntersection(*line2).second.second, 1);    // RANDOM VALUE
 }
 
-//TEST_F(CorrectPointOrder)
+// ------------ Tests for Triangles Intersecrions ---------------
+
+TEST_F(PointPoint, PointPointIntersection) {
+    EXPECT_TRUE(Intersection2Triangles(*test_1_a, *test_1_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_2_a, *test_2_b));
+}
+
+TEST_F(CutCut, CutCutIntersection) {
+    EXPECT_TRUE(Intersection2Triangles(*test_3_a, *test_3_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_4_a, *test_4_b));
+    EXPECT_TRUE(Intersection2Triangles(*test_5_a, *test_5_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_6_a, *test_6_b));
+}
+
+TEST_F(PointCut, PointCutIntersection) {
+    EXPECT_TRUE(Intersection2Triangles(*test_7_a, *test_7_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_8_a, *test_8_b));
+}
+TEST_F(PointTriangle, PointTriangleIntersection) {
+    EXPECT_TRUE(Intersection2Triangles(*test_9_a, *test_9_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_10_a, *test_10_b));
+}
+
+TEST_F(CutTriangle, CutTriangleIntersection) {
+    EXPECT_TRUE(Intersection2Triangles(*test_11_a, *test_11_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_12_a, *test_12_b));
+    EXPECT_TRUE(Intersection2Triangles(*test_13_a, *test_13_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_14_a, *test_14_b));
+}
+
+
+
+TEST_F(Triangles, TrianglesIntersections) {    
+    EXPECT_TRUE(Intersection2Triangles(*test_15_a, *test_15_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_16_a, *test_16_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_17_a, *test_17_b));
+    EXPECT_TRUE(Intersection2Triangles(*test_18_a, *test_18_b));
+    EXPECT_TRUE(Intersection2Triangles(*test_19_a, *test_19_b));
+    EXPECT_TRUE(Intersection2Triangles(*test_20_a, *test_20_b));
+    EXPECT_TRUE(Intersection2Triangles(*test_21_a, *test_21_b));
+    EXPECT_FALSE(Intersection2Triangles(*test_22_a, *test_22_b));
+
+    
+}
 
 
 // ------------------- Time for Million Elements test -------------------

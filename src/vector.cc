@@ -24,7 +24,7 @@ void Vector::Print() {
     std::clog << "Vector(" << X_ << ";" << Y_ << ";" << Z_ << ")\n";
 }
 
-double Vector::Len(){   //*
+double Vector::Len(){   
     return sqrt(X_*X_ + Y_*Y_ + Z_*Z_);
 }
 

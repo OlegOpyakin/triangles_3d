@@ -10,6 +10,8 @@ public:
 
     Triangle(Point point_1, Point point_2, Point point_3);
 
+    Triangle();
+
     ~Triangle();
     
     Plane GetPlane() const;
@@ -31,6 +33,8 @@ public:
     double test(Point point);
 
     std::pair<bool, std::pair<double, double>> TriangleLineIntersection(Line line);
+
+    bool TriangleAndPlaneIntesection(Plane plane);
 
 private:
     Point point_1_, point_2_, point_3_; // triangle points

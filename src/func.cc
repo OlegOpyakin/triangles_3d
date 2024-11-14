@@ -1,10 +1,10 @@
 #include "func.hpp"
 
 /*
-*   Возможны 3 случая (взаимоисключ):
-*   1. Плоскости, в которых лежат треугольники, параллельны (Частный случай - в одной плоскости)
-*   2. Точки одного треугольника лежат по одну сторону от плоскости другого треугольника 
-*   3.  Пересечение треугольников по линии пересечения их плоскостей
+*   There are 3 possible cases (mutually exclusive):
+*   1. The planes in which the triangles lie are parallel (A special case is in the same plane)
+*   2. The points of one triangle lie on one side of the plane of the other triangle
+*   3. The intersection of triangles along the line of intersection of their planes
 */
 bool CorrectPointOrder(double t11, double t12, double t21, double t22){ // only for point 1 < point 2
     // T11 T12 T21 T22
@@ -19,48 +19,43 @@ bool CorrectPointOrder(double t11, double t12, double t21, double t22){ // only 
 }
 
 bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
-    if (PlaneParallel(triangle_1.GetPlane(), triangle_2.GetPlane())){     // 1-ый случай
+    if (PlaneParallel(triangle_1.GetPlane(), triangle_2.GetPlane())){     // 1-ый case
         if (PlaneEqual(triangle_1.GetPlane(), triangle_2.GetPlane()) == false){ 
-            return false;   // они параллельны, но не совпадают;
+            return false;   // they are parallel, but not the same
         }
         else{
-            //FUCK
             return TrianglesInOnePlanesIntersection(triangle_1, triangle_2);   
         }
     }
     else{
         if (triangle_1.AllPointsRightOfPlane(triangle_2.GetPlane())){  
-            return false; // точки одного треугольника лежат по одну сторону от плоскости другого
+            return false; // the points of one triangle lie on one side of the plane of the other
         }
         else{
-            // Пересечение треугольников по линии пересечения их плоскостей 
-            // Мы уже знаем что их плоскость одного треугольника пересекается со вторым.
-            // Пересечем прямую с обоими треугольниками. (проверим что она пересекается с обоими треугольниками)
-            // Пусть Т1 - одна из точек пересечения с первым, Т2 - Одна из точек пересечения со вторым.
-            // Если получим Т2 Т2 Т1 Т1 или Т1 Т1 Т2 Т2 => false 
-            // в остальных случаях true
-            Vector plane_intesection_vector = VectorPlanesIntersection(triangle_1.GetPlane(), triangle_2.GetPlane());   // Вектор пересечения из плоскостей
+            // The intersection of triangles along the line of intersection of their planes
+            // We already know that their plane of one triangle intersects with the second.
+            // Let's intersect the straight line with both triangles. (let's check that it intersects with both triangles)
+            // Let T1 be one of the points of intersection with the first, T2 be one of the points of intersection with the second.
+            // If we get T2 T2 T1 T1 or T1 T1 T2 T2 => false
+            // in all other cases => true
+            Vector plane_intesection_vector = VectorPlanesIntersection(triangle_1.GetPlane(), triangle_2.GetPlane());   // The intersection vector of the planes
             Point plane_intesection_point = PointPlanesIntersection(triangle_1.GetPlane(), triangle_2.GetPlane());
             Line plane_intersection_line(plane_intesection_vector, plane_intesection_point);   
 
-            // пара (bool, t) t - параметры пересечения прямой и плоскостей
+            // pair (bool, t) t - parameters of the intersection of a straight line and planes
             std::pair<bool, std::pair<double, double>> intersection_points_1 = triangle_1.TriangleLineIntersection(plane_intersection_line); 
             std::pair<bool, std::pair<double, double>> intersection_points_2 = triangle_2.TriangleLineIntersection(plane_intersection_line); 
-            // поскольку в оба случая подавалась одна и та же прямая пересечения плоскостей с одной и той же начальной точкой, то
-            // именно ее параметры мы получили в парах => остается лишь сравнеить  порядок точек
+            // since in both cases the same line of intersection of planes with the same starting point was supplied, then
+            // it is its parameters that we have obtained in pairs => it remains only to compare the order of the points
             if (intersection_points_1.first and intersection_points_2.first){
                 double t11 = intersection_points_1.second.first;
                 double t12 = intersection_points_1.second.second;
                 double t21 = intersection_points_2.second.first;
                 double t22 = intersection_points_2.second.second;
-                // Проверяем порядок точек
-                // не должны выйти ситуации Т2 Т2 Т1 Т1 и Т1 Т1 Т2 Т2
 
-                // Алгоритм: между двумя меньшими точками Т1 и Т2 не может лежать точка:
-                // T1, если min_T1 < min_T2
-                // T2, если min_T1 > min_T2
-
-                // T11 T12 T21 T22
+                // checking the order of the points
+                // The situations T2 T2 T1 T1 and T1 T1 T2 T2 should not come out
+        
                 if (CorrectPointOrder(t11, t12, t21, t22) and CorrectPointOrder(t21, t22, t11, t12)){
                     return true;
                 }

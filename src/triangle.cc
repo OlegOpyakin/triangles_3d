@@ -7,17 +7,16 @@ Triangle::Triangle(Point point_1, Point point_2, Point point_3): point_1_(point_
                                                                  point_3_(point_3),
                                                                  plane(point_1, point_2, point_3) {};
     
-Plane Triangle::GetPlane() const{return plane;}
+Plane Triangle::GetPlane() const {return plane;}
 
 Triangle::~Triangle(){}
 
-Point Triangle::get_point_1() const{return point_1_;}
+Point Triangle::get_point_1() const {return point_1_;}
 
-Point Triangle::get_point_2() const{return point_2_;}
+Point Triangle::get_point_2() const {return point_2_;}
 
-Point Triangle::get_point_3() const{return point_3_;}
+Point Triangle::get_point_3() const {return point_3_;}
 
-// А что если треугольник касается этой самой плоскости?
 bool Triangle::AllPointsRightOfPlane(Plane plane){
     if ((plane.ValuePlaneEqual(point_1_) > 0) and (plane.ValuePlaneEqual(point_2_) > 0) and (plane.ValuePlaneEqual(point_3_) > 0)){
             return true;
@@ -37,10 +36,6 @@ double Triangle::Square(){
            (HalfPerimeter() - Vector(point_1_, point_3_).Len()) * (HalfPerimeter() - Vector(point_2_, point_3_).Len()));
 }
 
-
-// NEED FIX
-// ACCURACY 10^{-14}
-// MB ERRORS
 bool Triangle::PointInTriangle(Point point){  
     double new_square = Triangle(point, point_2_, point_3_).Square() + Triangle(point, point_1_, point_2_).Square() +
                         Triangle(point, point_1_, point_3_).Square();
@@ -53,26 +48,31 @@ double Triangle::test(Point point){
            Triangle(point, point_1_, point_3_).Square();
 }
 
+bool Triangle::TriangleAndPlaneIntesection(Plane plane){
+    if (PlaneParallel(GetPlane(), plane)) return false;
+       
+    Vector plane_intesection_vector = VectorPlanesIntersection(GetPlane(), plane);   // The intersection vector of the planes
+    Point plane_intesection_point = PointPlanesIntersection(GetPlane(), plane);
+    Line plane_intersection_line(plane_intesection_vector, plane_intesection_point);   
+
+    // pair (bool, t) t - parameters of the intersection of a straight line and planes
+    return TriangleLineIntersection(plane_intersection_line).first; 
+}
+
 std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Line line){
     // cut 1-2 & line
     std::pair<double, double> points(0,0);          // t1 and t2
     std::pair<bool, double> one_point_result;
     bool result_first_was_write = false;
 
-//      FIX FIX FIX         FIX FIX FIX
-//          разрашить редекларацию cut
-//      FIX FIX FIZ         FIX FIX FIX
-
-    Cut cut(get_point_1(), get_point_2());
-    one_point_result = CutAndLineIntersection(cut, line);
+    one_point_result = CutAndLineIntersection(Cut(get_point_1(), get_point_2()), line);
     if (one_point_result.first){
         points.first = one_point_result.second;
         result_first_was_write = true;
     }
 
     // cut 1-3 & line
-    Cut cut1(get_point_1(), get_point_3());
-    one_point_result = CutAndLineIntersection(cut1, line);
+    one_point_result = CutAndLineIntersection(Cut(get_point_1(), get_point_2()), line);
     if (one_point_result.first){
         if (result_first_was_write){
             points.second = one_point_result.second;
@@ -84,11 +84,12 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
     }
 
     // cut 2-3 & line
-    Cut cut2(get_point_2(), get_point_3());
-    one_point_result = CutAndLineIntersection(cut2, line);
+    one_point_result = CutAndLineIntersection(Cut(get_point_1(), get_point_2()), line);
     if (one_point_result.first) points.second = one_point_result.second;
     return std::make_pair(result_first_was_write, points);
 }
+
+
 
 bool TrianglesInOnePlanesIntersection(Triangle triangle_1, Triangle triangle_2){
     if (triangle_1.PointInTriangle(triangle_2.get_point_1())) return true;
