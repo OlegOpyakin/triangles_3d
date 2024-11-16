@@ -10,7 +10,7 @@ public:
 
     Line(Point start_point, Point end_point);
 
-    ~Line();
+    ~Line() = default;
 
     Vector GetDirectionVector() const;
 

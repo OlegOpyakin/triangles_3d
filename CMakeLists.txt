@@ -4,6 +4,7 @@ project(my_triangles)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_FLAGS "-std=c++20 -O2 -g")
+set(CMAKE_CXX_FLAGS_DEBUG "-std=c++20 -Wall -g -O0 -fsanitize=address -fsanitize=undefined")
 
 include(FetchContent)
 FetchContent_Declare(

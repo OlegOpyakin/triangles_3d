@@ -8,7 +8,7 @@ public:
 
     Plane(Point point_1, Point point_2, Point point_3);
 
-    ~Plane();
+    ~Plane() = default;
 
     double GetA() const;
     double GetB() const;

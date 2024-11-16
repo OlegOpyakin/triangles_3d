@@ -11,7 +11,7 @@ public:
 
     Cut(Point start_point, Point end_point); // vector from start point to end point
     
-    ~Cut();
+    ~Cut() = default;
 
     Line GetLine () const;
 

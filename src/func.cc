@@ -18,8 +18,24 @@ bool CorrectPointOrder(double t11, double t12, double t21, double t22){ // only 
     return true;
 }
 
+bool ItPoint(Triangle triangle_1){
+    if (triangle_1.get_point_1().GetX() != triangle_1.get_point_2().GetX()) return false;
+    if (triangle_1.get_point_1().GetX() != triangle_1.get_point_3().GetX()) return false;
+    if (triangle_1.get_point_1().GetY() != triangle_1.get_point_2().GetY()) return false;
+    if (triangle_1.get_point_2().GetY() != triangle_1.get_point_3().GetY()) return false;
+    if (triangle_1.get_point_2().GetZ() != triangle_1.get_point_2().GetZ()) return false;
+    if (triangle_1.get_point_2().GetZ() != triangle_1.get_point_3().GetZ()) return false;
+    return true;
+}
+
 bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
-    if (PlaneParallel(triangle_1.GetPlane(), triangle_2.GetPlane())){     // 1-ый case
+    // check 2 points case
+    if (ItPoint(triangle_1) and ItPoint(triangle_2)){
+        if (triangle_1.get_point_1().GetX() != triangle_2.get_point_1().GetX()) return false;
+        else return true;
+    }
+    
+    if (ItPoint(triangle_1) or ItPoint(triangle_2)){
         if (PlaneEqual(triangle_1.GetPlane(), triangle_2.GetPlane()) == false){ 
             return false;   // they are parallel, but not the same
         }
@@ -27,6 +43,16 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             return TrianglesInOnePlanesIntersection(triangle_1, triangle_2);   
         }
     }
+
+    // another cases
+    if (PlaneParallel(triangle_1.GetPlane(), triangle_2.GetPlane())){     // 1 case
+        if (PlaneEqual(triangle_1.GetPlane(), triangle_2.GetPlane()) == false){ 
+            return false;   // they are parallel, but not the same
+        }
+        else{
+            return TrianglesInOnePlanesIntersection(triangle_1, triangle_2);   
+        }
+    }   
     else{
         if (triangle_1.AllPointsRightOfPlane(triangle_2.GetPlane())){  
             return false; // the points of one triangle lie on one side of the plane of the other
@@ -41,7 +67,7 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             Vector plane_intesection_vector = VectorPlanesIntersection(triangle_1.GetPlane(), triangle_2.GetPlane());   // The intersection vector of the planes
             Point plane_intesection_point = PointPlanesIntersection(triangle_1.GetPlane(), triangle_2.GetPlane());
             Line plane_intersection_line(plane_intesection_vector, plane_intesection_point);   
-
+            
             // pair (bool, t) t - parameters of the intersection of a straight line and planes
             std::pair<bool, std::pair<double, double>> intersection_points_1 = triangle_1.TriangleLineIntersection(plane_intersection_line); 
             std::pair<bool, std::pair<double, double>> intersection_points_2 = triangle_2.TriangleLineIntersection(plane_intersection_line); 
@@ -55,7 +81,6 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
 
                 // checking the order of the points
                 // The situations T2 T2 T1 T1 and T1 T1 T2 T2 should not come out
-        
                 if (CorrectPointOrder(t11, t12, t21, t22) and CorrectPointOrder(t21, t22, t11, t12)){
                     return true;
                 }

@@ -11,7 +11,7 @@ public:
     
     Point(double X, double Y, double Z);
 
-    ~Point();
+    ~Point() = default;
 
     void SetX(const double X);
     void SetY(const double Y);

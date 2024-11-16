@@ -12,7 +12,7 @@ public:
 
     Triangle();
 
-    ~Triangle();
+    ~Triangle() = default;
     
     Plane GetPlane() const;
 

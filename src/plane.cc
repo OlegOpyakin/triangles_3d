@@ -14,8 +14,6 @@ Plane::Plane(Point point_1, Point point_2, Point point_3) {
     D_ = - (A_ * point_1.GetX() + B_ * point_1.GetY() + C_ * point_1.GetZ()); 
 }
 
-Plane::~Plane(){}
-
 double Plane::GetA() const { return A_; };
 double Plane::GetB() const { return B_; };
 double Plane::GetC() const { return C_; };

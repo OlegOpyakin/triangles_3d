@@ -9,8 +9,6 @@ Vector::Vector(Point point_start, Point point_end): X_(point_end.GetX() - point_
         
 Vector::Vector(double X, double Y, double Z): X_(X), Y_(Y), Z_(Z) {}
 
-Vector::~Vector() {}
-
 double Vector::GetX() const { return X_; };
 double Vector::GetY() const { return Y_; };
 double Vector::GetZ() const { return Z_; };

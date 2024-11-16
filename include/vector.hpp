@@ -15,7 +15,7 @@ public:
         
     Vector(double X, double Y, double Z);
 
-    ~Vector();
+    ~Vector() = default;
 
     double GetX() const;
     double GetY() const;

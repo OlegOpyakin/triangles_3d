@@ -13,8 +13,6 @@ Cut::Cut(Point start_point, Point end_point): line(start_point, end_point),
                                               start_point(start_point),
                                               end_point(end_point) {}
 
-Cut::~Cut(){}
-
 Line Cut::GetLine () const { return line; }
 
 Point Cut::GetStartPoint () const { return start_point; }
@@ -49,7 +47,7 @@ double Cut::FindMaxArg(){
 }
 */
 
-    std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){    
+    std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){
 
         Line line_1 = cut.GetLine(); 
 
@@ -73,14 +71,25 @@ double Cut::FindMaxArg(){
         double B2 = vector2.GetY();
         double C2 = vector2.GetZ();
 
+
         // We have a parametric equation of a straight line
         double t, s; // t is the parameter of the first straight line (segment), s is the second
         
         // let's check for parallelism
-        double denom = A1 * B2 + A2 * B1;
+        double denom = A1 * B2 - A2 * B1;
         if (denom == 0){
             denom = B1 * C2 - B2 * C1;
-            if (denom == 0) return std::make_pair(false, 0); // parallel
+            if (denom == 0) {
+                if (x1 == x2 and y1 == y2 and z1 == z2){
+                    return std::make_pair(true, 0); // нам не важен будет порядок точек
+                }
+                else if (((x1-x2)*B1  == (y1-y2)*A1) and ((x1-x2)*C1  == (z1-z2)*A1)){
+                    return std::make_pair(true, 0); // нам не важен будет порядок точек
+                }
+                else{
+                    return std::make_pair(false, 0); // parallel
+                }
+            }
             else{
                 t = ((x2 - x1) * B2 - (y2 - y1) * A2) / denom;
                 s = ((x2 - x1) * B1 - (y2 - y1) * A1) / denom;

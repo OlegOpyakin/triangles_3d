@@ -9,8 +9,6 @@ Triangle::Triangle(Point point_1, Point point_2, Point point_3): point_1_(point_
     
 Plane Triangle::GetPlane() const {return plane;}
 
-Triangle::~Triangle(){}
-
 Point Triangle::get_point_1() const {return point_1_;}
 
 Point Triangle::get_point_2() const {return point_2_;}
@@ -72,7 +70,7 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
     }
 
     // cut 1-3 & line
-    one_point_result = CutAndLineIntersection(Cut(get_point_1(), get_point_2()), line);
+    one_point_result = CutAndLineIntersection(Cut(get_point_1(), get_point_3()), line);
     if (one_point_result.first){
         if (result_first_was_write){
             points.second = one_point_result.second;
@@ -82,9 +80,8 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
             result_first_was_write = true;
         }
     }
-
     // cut 2-3 & line
-    one_point_result = CutAndLineIntersection(Cut(get_point_1(), get_point_2()), line);
+    one_point_result = CutAndLineIntersection(Cut(get_point_2(), get_point_3()), line);
     if (one_point_result.first) points.second = one_point_result.second;
     return std::make_pair(result_first_was_write, points);
 }
