@@ -3,20 +3,25 @@
 
 cmake_minimum_required(VERSION 3.5)
 
+# If CMAKE_DISABLE_SOURCE_CHANGES is set to true and the source directory is an
+# existing directory in our source tree, calling file(MAKE_DIRECTORY) on it
+# would cause a fatal error, even though it would be a no-op.
+if(NOT EXISTS "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-src")
+  file(MAKE_DIRECTORY "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-src")
+endif()
 file(MAKE_DIRECTORY
-  "/home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-src"
-  "/home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-build"
-  "/home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix"
-  "/home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/tmp"
-  "/home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
-  "/home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src"
-  "/home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
+  "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-build"
+  "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix"
+  "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/tmp"
+  "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
+  "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src"
+  "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp${cfgdir}") # cfgdir has leading slash
 endif()

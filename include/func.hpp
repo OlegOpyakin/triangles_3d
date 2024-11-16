@@ -1,4 +1,4 @@
-#include "triangle.hpp"
+#include "OctTree.hpp"
 #include <iostream> 
 
 #pragma once

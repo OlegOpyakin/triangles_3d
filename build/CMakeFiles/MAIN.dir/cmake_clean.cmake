@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/MAIN.dir/src/OctTree.cc.o"
+  "CMakeFiles/MAIN.dir/src/OctTree.cc.o.d"
   "CMakeFiles/MAIN.dir/src/approx_equal.cc.o"
   "CMakeFiles/MAIN.dir/src/approx_equal.cc.o.d"
   "CMakeFiles/MAIN.dir/src/cut.cc.o"

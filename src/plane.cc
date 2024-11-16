@@ -14,15 +14,15 @@ Plane::Plane(Point point_1, Point point_2, Point point_3) {
     D_ = - (A_ * point_1.GetX() + B_ * point_1.GetY() + C_ * point_1.GetZ()); 
 }
 
-double Plane::GetA() const { return A_; };
-double Plane::GetB() const { return B_; };
-double Plane::GetC() const { return C_; };
-double Plane::GetD() const { return D_; };
+double Plane::GetA() const { return A_; }
+double Plane::GetB() const { return B_; }
+double Plane::GetC() const { return C_; }
+double Plane::GetD() const { return D_; }
 
-double Plane::SetA(double A) { A_ = A; };
-double Plane::SetB(double B) { B_ = B; };
-double Plane::SetC(double C) { C_ = C; };
-double Plane::SetD(double D) { D_ = D; };
+void Plane::SetA(const double A) { A_ = A; }
+void Plane::SetB(const double B) { B_ = B; }
+void Plane::SetC(const double C) { C_ = C; }
+void Plane::SetD(const double D) { D_ = D; }
 
 double Plane::ValuePlaneEqual(Point point){
     return A_ * point.GetX() + B_ * point.GetY() + C_ * point.GetZ() + D_;

@@ -6,27 +6,38 @@ int main(){
     const int max = 1000000;
     int N;
     double x, y, z;
-    std::vector<Triangle> triangles;
+    std::list<Triangle> triangles;
     int count = 0;
+
+    double size = 0;
 
     std::cin >> N;
     for (int i = 0; i < N; i++){
+
         std::cin >> x >> y >> z;
         Point point1(x, y, z);
+        size = MaxSize(point1, size);
+
         std::cin >> x >> y >> z;
         Point point2(x, y, z);
+        size = MaxSize(point2, size);
+
         std::cin >> x >> y >> z;
         Point point3(x, y, z);
+        size = MaxSize(point3, size);
+
         triangles.push_back(Triangle(point1, point2, point3));
     }
 
+    OctTree tree(triangles, size);
+    /*
     for (int i = 0; i < N; i++){
         for (int j = 0; j < i; j++){
             if (Intersection2Triangles(triangles[i], triangles[j])) count++;
         }
     }
     std::cout << "\ncount = " << count << std::endl << std::endl;
- 
+    */
 }
 
 

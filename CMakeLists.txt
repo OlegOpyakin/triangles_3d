@@ -18,10 +18,10 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-add_library(Lib SHARED src/main.cc)
+add_library(Lib SHARED src/main.cc src/approx_equal.cc src/cut.cc src/func.cc src/line.cc src/plane.cc src/point.cc src/triangle.cc src/vector.cc src/OctTree.cc)
 
-add_executable(MAIN src/main.cc src/approx_equal.cc src/cut.cc src/func.cc src/line.cc src/plane.cc src/point.cc src/triangle.cc src/vector.cc)
-add_executable(TESTS src/TESTS.cc src/approx_equal.cc src/cut.cc src/func.cc src/line.cc src/plane.cc src/point.cc src/triangle.cc src/vector.cc)
+add_executable(MAIN src/main.cc src/approx_equal.cc src/cut.cc src/func.cc src/line.cc src/plane.cc src/point.cc src/triangle.cc src/vector.cc src/OctTree.cc)
+add_executable(TESTS src/TESTS.cc src/approx_equal.cc src/cut.cc src/func.cc src/line.cc src/plane.cc src/point.cc src/triangle.cc src/vector.cc src/OctTree.cc)
 
 target_include_directories(TESTS PUBLIC include/)
 target_include_directories(MAIN PUBLIC include/)

@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-src/googlemock
-# Build directory: /home/user/Документы/GitHub/triangles_3d/build/_deps/googletest-build/googlemock
+# Source directory: /Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-src/googlemock
+# Build directory: /Users/oleg/Documents/GitHub/triangles_3d/build/_deps/googletest-build/googlemock
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

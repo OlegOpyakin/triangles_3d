@@ -15,10 +15,10 @@ public:
     double GetC() const;
     double GetD() const;
 
-    double SetA(double A);
-    double SetB(double B);
-    double SetC(double C);
-    double SetD(double D);
+    void SetA(const double A);
+    void SetB(const double B);
+    void SetC(const double C);
+    void SetD(const double D);
 
 
     double ValuePlaneEqual(Point point);
