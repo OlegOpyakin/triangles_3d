@@ -2,7 +2,7 @@
 
 #pragma once
 
-void ParseNode(bool* flag_array, Node* node);
+int ParseNode(bool* flag_array, const Node* node);
 /*
 {
     for(auto triangle1 = node->triangles_list_.begin(); triangle1 != node->triangles_list_.end(); ++triangle1){
@@ -23,7 +23,7 @@ void ParseNode(bool* flag_array, Node* node);
 }
 */
 
-void ParseChildren(bool* flag_array, Node* node, const Triangle& triangle1);
+int ParseChildren(bool* flag_array, const Node* node, const Triangle& triangle1);
 /*
 {
     for(int i = 0; i < 8; i++){

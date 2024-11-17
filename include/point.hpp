@@ -23,5 +23,5 @@ public:
 
     void Print();
 private:
-    double X_, Y_, Z_;
+    double X_ = 0, Y_ = 0, Z_ = 0;
 };

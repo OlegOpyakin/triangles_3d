@@ -1,24 +1,25 @@
 #include "triangle.hpp"
 #include <list>
+#include <array>
 
 #pragma once
 
+// code idea taken from there https://habr.com/ru/articles/334990/
+// also used this as a source https://habr.com/ru/articles/312882/
+
 class Node{
 public:
-    Node(const Point& centre_of_node, const double& size): centre_of_node_(centre_of_node), size_(size) {};
-    ~Node(){}
+    Node(const Point& centre_of_node, const double& size = NAN): centre_of_node_(centre_of_node), size_(size) {};
+    ~Node() = default;
 
-    std::list<Triangle> triangles_list_ {};
-
+    std::list<Triangle> triangles_in_node_{};
     std::array<Node*, 8> childs_ = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
 
-    Node* parent_ = nullptr;
+    const Point centre_of_node_; // middle of our node
 
-    const Point centre_of_node_ = {NAN, NAN, NAN};
+    bool emptey_ = true; // if there any triangles
 
-    bool is_leaf = true;
-
-    size_t active_node_mask_ = 0;
+    size_t active_node_mask_ = 0; // bits mask to have less comparasions(as in reference)
 
     const double size_ = 0;
 };
@@ -26,57 +27,26 @@ public:
 
 bool PointInNode(const Point& point, const Point& middle, const double& size);
 
-
 bool TriangleInNode(const Triangle& triangle, const Point& middle, const double& size);
 
-bool TrianglePartInNode(Triangle& triangle, Point& middle, double& size);
+bool TrianglePartInNode(const Triangle& triangle, const Point& middle, const double& size);
 
 void CreateChildren(Node* node);
 
 
 class OctTree{
 public:
-    OctTree(std::list<Triangle>& all_triangles, double max_size){
-
-        Point middle(0, 0, 0);
-
-        root_ = new Node(middle, max_size);
-
-        if(root_ = nullptr) return;
-
-        auto start = all_triangles.begin();
-        auto end = all_triangles.end();
-
-        while(start != end){
-            root_->triangles_list_.push_back(*start);
-        }
-
-        /*
-        for(auto i: all_triangles){
-            root_->triangles_list_.push_back(i);
-        }
-        */
-
-        CreateChildren(root_);
-    };
-
+    OctTree(const std::list<Triangle>& all_triangles, double max_size);
+    ~OctTree();
+    /*
     ~OctTree(){
         DeleteNodes(root_);
         delete root_;
-    };
+    };*/
     
-    void DeleteNodes(Node* node){
-        for(int i = 0; i < 8; i++){
-            if(node->childs_[i]){
-                DeleteNodes(node->childs_[i]);
-            }
-        }
-        for(int i = 0; i < 8; i++){
-            delete node->childs_[i];
-        }
-    }
+    void DeleteNodes(Node* node);
 
-    Node* root_;
+    Node* root_ = nullptr;
 };
 
 

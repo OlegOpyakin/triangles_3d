@@ -27,7 +27,7 @@ public:
     void Print();
 
 private:
-    double A_, B_, C_, D_; //plane equasion coeffs Ax + By + Cz + D = 0
+    double A_ = 0, B_ = 0, C_ = 0, D_ = 0; //plane equasion coeffs Ax + By + Cz + D = 0
     Vector normal_vector_;
 };
 

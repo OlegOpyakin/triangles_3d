@@ -32,7 +32,7 @@ public:
     //void operator()(double X, double Y, double Z){} пока не знаю нужен или нет
 
 private:
-    double X_, Y_, Z_;
+    double X_ = 0, Y_ = 0, Z_ = 0;
 };
 
 bool VectorEqual(Vector vector_1, Vector vector_2);

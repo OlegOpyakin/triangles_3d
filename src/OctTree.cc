@@ -1,5 +1,44 @@
 #include "OctTree.hpp"
 
+
+OctTree::OctTree(const std::list<Triangle>& all_triangles, double max_size){
+    Point middle(0, 0, 0);
+    root_ = new Node(middle, max_size);
+    //if(root_ == nullptr) return;
+    /*
+    auto start = all_triangles.begin();
+    auto end = all_triangles.end();
+
+    while(start != end){
+        root_->triangles_in_node_.push_back(*start);
+        start++;
+    }
+    */
+    for(auto i: all_triangles){
+        root_->triangles_in_node_.push_back(i);
+    }
+    CreateChildren(root_);
+};
+
+
+void OctTree::DeleteNodes(Node* node){
+    for(int i = 0; i < 8; i++){
+        if(node->childs_[i]){
+            DeleteNodes(node->childs_[i]);
+        }
+    }
+    for(int i = 0; i < 8; i++){
+        delete node->childs_[i];
+    }
+}
+
+
+OctTree::~OctTree(){
+    DeleteNodes(root_);
+    delete root_;
+}
+
+
 bool PointInNode(const Point& point, const Point& middle, const double& size){
     return( (middle.GetX() - size) < point.GetX() &&
             point.GetX() < (middle.GetX() + size) &&
@@ -18,7 +57,7 @@ bool TriangleInNode(const Triangle& triangle, const Point& middle, const double&
             PointInNode(triangle.get_point_3(), middle, size) );
 }
 
-bool TrianglePartInNode(Triangle& triangle, Point& middle, double& size)
+bool TrianglePartInNode(const Triangle& triangle, const Point& middle, const double& size)
 {
     return( PointInNode(triangle.get_point_1(), middle, size) ||
             PointInNode(triangle.get_point_2(), middle, size) || 
@@ -27,12 +66,12 @@ bool TrianglePartInNode(Triangle& triangle, Point& middle, double& size)
 
 void CreateChildren(Node* node)
 {
-    if (node->triangles_list_.size() < 8) // check if the node is last
+    if (node->triangles_in_node_.size() < 8) // check if the node is last
         return;
 
     double new_size = node->size_/2;
 
-    int num_of_triangles = node->triangles_list_.size();
+    int num_of_triangles = node->triangles_in_node_.size();
 
     for (size_t i = 0; i < 8; i++)
     {
@@ -62,11 +101,11 @@ void CreateChildren(Node* node)
 
         node->childs_[i] = new Node(Point{new_x, new_y, new_z}, new_size);
     }*/
-    int old_size = node->triangles_list_.size();
+    int old_size = node->triangles_in_node_.size();
 
-    auto it = node->triangles_list_.begin();
+    auto it = node->triangles_in_node_.begin();
 
-    auto last = node->triangles_list_.end();
+    auto last = node->triangles_in_node_.end();
 
     while(it != last)
     {
@@ -76,9 +115,9 @@ void CreateChildren(Node* node)
         {
             if( TriangleInNode(*it, node->childs_[i]->centre_of_node_, node->childs_[i]->size_) ) //function to check if we in box
             {
-                node->childs_[i]->triangles_list_.push_back(*it);
+                node->childs_[i]->triangles_in_node_.push_back(*it);
 
-                node->triangles_list_.erase(it++);
+                node->triangles_in_node_.erase(it++);
 
                 exists = false;
 
@@ -88,8 +127,8 @@ void CreateChildren(Node* node)
         if(exists) it++;
     }
 
-    if(old_size - node->triangles_list_.size())
-        node->is_leaf = false;
+    if(old_size - node->triangles_in_node_.size())
+        node->emptey_ = false;
     /*
     if((num_of_triangles - node->triangles_list_.size()) == 0) node->is_emptey = true;
     else node->is_emptey = false;
@@ -97,7 +136,7 @@ void CreateChildren(Node* node)
 
     for(int i = 0; i < 8; i++)
     {
-        if(node->childs_[i]->triangles_list_.size())
+        if(node->childs_[i]->triangles_in_node_.size())
         {
             node->active_node_mask_ |= (1 << i);
             CreateChildren(node->childs_[i]);
