@@ -138,12 +138,12 @@ _deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMake
 CMakeFiles/Lib.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target Lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target Lib"
 .PHONY : CMakeFiles/Lib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles 0
 .PHONY : CMakeFiles/Lib.dir/rule
@@ -164,12 +164,12 @@ CMakeFiles/Lib.dir/clean:
 CMakeFiles/MAIN.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=12,13,14,15,16,17,18,19,20,21,22 "Built target MAIN"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=13,14,15,16,17,18,19,20,21,22,23,24 "Built target MAIN"
 .PHONY : CMakeFiles/MAIN.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MAIN.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MAIN.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles 0
 .PHONY : CMakeFiles/MAIN.dir/rule
@@ -192,12 +192,12 @@ CMakeFiles/TESTS.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir
 CMakeFiles/TESTS.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=23,24,25,26,27,28,29,30,31,32,33 "Built target TESTS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33,34,35,36 "Built target TESTS"
 .PHONY : CMakeFiles/TESTS.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TESTS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TESTS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles 0
 .PHONY : CMakeFiles/TESTS.dir/rule
@@ -218,7 +218,7 @@ CMakeFiles/TESTS.dir/clean:
 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=34,35 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=37,38 "Built target gmock"
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -245,7 +245,7 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletes
 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=36,37 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=39,40 "Built target gmock_main"
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -271,7 +271,7 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean:
 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=38,39 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=41,42 "Built target gtest"
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -297,7 +297,7 @@ _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean:
 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=40,41 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=43,44 "Built target gtest_main"
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.

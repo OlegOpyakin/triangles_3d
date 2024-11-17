@@ -36,6 +36,12 @@ public:
 
     bool TriangleAndPlaneIntesection(Plane plane);
 
+    //------------ added ------------
+
+    int number;
+
+    //-------------------------------
+
 private:
     Point point_1_, point_2_, point_3_; // triangle points
     Plane plane; // the plane of our triangle

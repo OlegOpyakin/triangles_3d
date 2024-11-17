@@ -1,6 +1,6 @@
 #include "OctTree.hpp"
 
-bool PointInNode(const Point point, const Point middle, double size){
+bool PointInNode(const Point& point, const Point& middle, const double& size){
     return( (middle.GetX() - size) < point.GetX() &&
             point.GetX() < (middle.GetX() + size) &&
 
@@ -11,10 +11,17 @@ bool PointInNode(const Point point, const Point middle, double size){
             point.GetZ() < (middle.GetZ() + size) );
 }
 
-bool TriangleInNode(Triangle& triangle, Point& middle, double& size)
+bool TriangleInNode(const Triangle& triangle, const Point& middle, const double& size)
 {
     return( PointInNode(triangle.get_point_1(), middle, size) && 
             PointInNode(triangle.get_point_2(), middle, size) && 
+            PointInNode(triangle.get_point_3(), middle, size) );
+}
+
+bool TrianglePartInNode(Triangle& triangle, Point& middle, double& size)
+{
+    return( PointInNode(triangle.get_point_1(), middle, size) ||
+            PointInNode(triangle.get_point_2(), middle, size) || 
             PointInNode(triangle.get_point_3(), middle, size) );
 }
 
@@ -24,8 +31,21 @@ void CreateChildren(Node* node)
         return;
 
     double new_size = node->size_/2;
+
     int num_of_triangles = node->triangles_list_.size();
-    
+
+    for (size_t i = 0; i < 8; i++)
+    {
+        double middle_x = node->centre_of_node_.GetX() + ((i & 1) ? new_size : -new_size);
+
+        double middle_y = node->centre_of_node_.GetY() + ((i & 2) ? new_size : -new_size);
+
+        double middle_z = node->centre_of_node_.GetZ() + ((i & 4) ? new_size : -new_size);
+
+        node->childs_[i] = new Node(Point{middle_x, middle_y, middle_z}, new_size);
+    }
+
+    /*
     for(int i = 0; i < 8; i++){
         double new_x;
         double new_y;
@@ -41,30 +61,45 @@ void CreateChildren(Node* node)
         else { new_z = node->centre_of_node_.GetZ() - new_size; }
 
         node->childs_[i] = new Node(Point{new_x, new_y, new_z}, new_size);
-    }
+    }*/
+    int old_size = node->triangles_list_.size();
 
     auto it = node->triangles_list_.begin();
+
     auto last = node->triangles_list_.end();
 
-    while(it != last){
-        int flag = 0;
-        for(int i = 0; i < 8; i++){
-            bool hit = TriangleInNode(*it, node->childs_[i]->centre_of_node_, node->childs_[i]->size_); //function to check if we in box
-            if(hit){
+    while(it != last)
+    {
+        bool exists = true;
+
+        for(int i = 0; i < 8; i++)
+        {
+            if( TriangleInNode(*it, node->childs_[i]->centre_of_node_, node->childs_[i]->size_) ) //function to check if we in box
+            {
                 node->childs_[i]->triangles_list_.push_back(*it);
+
                 node->triangles_list_.erase(it++);
-                flag = 1;
+
+                exists = false;
+
                 break;
             }
         }
-        if(flag == 0) it++;
+        if(exists) it++;
     }
-    
+
+    if(old_size - node->triangles_list_.size())
+        node->is_leaf = false;
+    /*
     if((num_of_triangles - node->triangles_list_.size()) == 0) node->is_emptey = true;
     else node->is_emptey = false;
+    */
 
-    for(int i = 0; i < 8; i++){
-        if(node->childs_[i]->triangles_list_.size()){
+    for(int i = 0; i < 8; i++)
+    {
+        if(node->childs_[i]->triangles_list_.size())
+        {
+            node->active_node_mask_ |= (1 << i);
             CreateChildren(node->childs_[i]);
         }
     }

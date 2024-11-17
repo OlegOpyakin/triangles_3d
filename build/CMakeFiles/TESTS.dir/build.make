@@ -209,6 +209,20 @@ CMakeFiles/TESTS.dir/src/OctTree.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TESTS.dir/src/OctTree.cc.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/oleg/Documents/GitHub/triangles_3d/src/OctTree.cc -o CMakeFiles/TESTS.dir/src/OctTree.cc.s
 
+CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o: CMakeFiles/TESTS.dir/flags.make
+CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o: /Users/oleg/Documents/GitHub/triangles_3d/src/parsing_triangles.cc
+CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o: CMakeFiles/TESTS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o -MF CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o.d -o CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o -c /Users/oleg/Documents/GitHub/triangles_3d/src/parsing_triangles.cc
+
+CMakeFiles/TESTS.dir/src/parsing_triangles.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TESTS.dir/src/parsing_triangles.cc.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/oleg/Documents/GitHub/triangles_3d/src/parsing_triangles.cc > CMakeFiles/TESTS.dir/src/parsing_triangles.cc.i
+
+CMakeFiles/TESTS.dir/src/parsing_triangles.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TESTS.dir/src/parsing_triangles.cc.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/oleg/Documents/GitHub/triangles_3d/src/parsing_triangles.cc -o CMakeFiles/TESTS.dir/src/parsing_triangles.cc.s
+
 # Object files for target TESTS
 TESTS_OBJECTS = \
 "CMakeFiles/TESTS.dir/src/TESTS.cc.o" \
@@ -220,7 +234,8 @@ TESTS_OBJECTS = \
 "CMakeFiles/TESTS.dir/src/point.cc.o" \
 "CMakeFiles/TESTS.dir/src/triangle.cc.o" \
 "CMakeFiles/TESTS.dir/src/vector.cc.o" \
-"CMakeFiles/TESTS.dir/src/OctTree.cc.o"
+"CMakeFiles/TESTS.dir/src/OctTree.cc.o" \
+"CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o"
 
 # External object files for target TESTS
 TESTS_EXTERNAL_OBJECTS =
@@ -235,12 +250,13 @@ TESTS: CMakeFiles/TESTS.dir/src/point.cc.o
 TESTS: CMakeFiles/TESTS.dir/src/triangle.cc.o
 TESTS: CMakeFiles/TESTS.dir/src/vector.cc.o
 TESTS: CMakeFiles/TESTS.dir/src/OctTree.cc.o
+TESTS: CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o
 TESTS: CMakeFiles/TESTS.dir/build.make
 TESTS: lib/libgtest_main.a
 TESTS: libLib.dylib
 TESTS: lib/libgtest.a
 TESTS: CMakeFiles/TESTS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable TESTS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/oleg/Documents/GitHub/triangles_3d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable TESTS"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TESTS.dir/link.txt --verbose=$(VERBOSE)
 	/opt/homebrew/Cellar/cmake/3.30.3/bin/cmake -D TEST_TARGET=TESTS -D TEST_EXECUTABLE=/Users/oleg/Documents/GitHub/triangles_3d/build/TESTS -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/Users/oleg/Documents/GitHub/triangles_3d/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=TESTS_TESTS -D CTEST_FILE=/Users/oleg/Documents/GitHub/triangles_3d/build/TESTS[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /opt/homebrew/Cellar/cmake/3.30.3/share/cmake/Modules/GoogleTestAddTests.cmake
 

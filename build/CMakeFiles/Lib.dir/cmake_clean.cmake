@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Lib.dir/src/line.cc.o.d"
   "CMakeFiles/Lib.dir/src/main.cc.o"
   "CMakeFiles/Lib.dir/src/main.cc.o.d"
+  "CMakeFiles/Lib.dir/src/parsing_triangles.cc.o"
+  "CMakeFiles/Lib.dir/src/parsing_triangles.cc.o.d"
   "CMakeFiles/Lib.dir/src/plane.cc.o"
   "CMakeFiles/Lib.dir/src/plane.cc.o.d"
   "CMakeFiles/Lib.dir/src/point.cc.o"

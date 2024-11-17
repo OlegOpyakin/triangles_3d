@@ -1,4 +1,4 @@
-#include "func.hpp"
+#include "parsing_triangles.hpp"
 #include <vector>
 #include <iostream>
 
@@ -26,10 +26,23 @@ int main(){
         Point point3(x, y, z);
         size = MaxSize(point3, size);
 
-        triangles.push_back(Triangle(point1, point2, point3));
+        Triangle triangle = Triangle(point1, point2, point3);
+        triangle.number = i;
+
+        triangles.push_back(triangle);
     }
 
+    std::list<Triangle> intersected_triangles;
+    int counter = 0;
+
     OctTree tree(triangles, size);
+
+    bool *FlagArray = new bool [N]{};
+
+    ParseNode(FlagArray, tree.root_);
+
+    std::cout << "\ncount = " << counter << std::endl;
+
     /*
     for (int i = 0; i < N; i++){
         for (int j = 0; j < i; j++){

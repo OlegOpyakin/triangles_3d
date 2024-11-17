@@ -463,6 +463,36 @@ src/main.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/main.cc.s
 .PHONY : src/main.cc.s
 
+src/parsing_triangles.o: src/parsing_triangles.cc.o
+.PHONY : src/parsing_triangles.o
+
+# target to build an object file
+src/parsing_triangles.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/src/parsing_triangles.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/parsing_triangles.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o
+.PHONY : src/parsing_triangles.cc.o
+
+src/parsing_triangles.i: src/parsing_triangles.cc.i
+.PHONY : src/parsing_triangles.i
+
+# target to preprocess a source file
+src/parsing_triangles.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/src/parsing_triangles.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/parsing_triangles.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/parsing_triangles.cc.i
+.PHONY : src/parsing_triangles.cc.i
+
+src/parsing_triangles.s: src/parsing_triangles.cc.s
+.PHONY : src/parsing_triangles.s
+
+# target to generate assembly for a file
+src/parsing_triangles.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lib.dir/build.make CMakeFiles/Lib.dir/src/parsing_triangles.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MAIN.dir/build.make CMakeFiles/MAIN.dir/src/parsing_triangles.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TESTS.dir/build.make CMakeFiles/TESTS.dir/src/parsing_triangles.cc.s
+.PHONY : src/parsing_triangles.cc.s
+
 src/plane.o: src/plane.cc.o
 .PHONY : src/plane.o
 
@@ -624,6 +654,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parsing_triangles.o"
+	@echo "... src/parsing_triangles.i"
+	@echo "... src/parsing_triangles.s"
 	@echo "... src/plane.o"
 	@echo "... src/plane.i"
 	@echo "... src/plane.s"

@@ -1,5 +1,5 @@
-CMakeFiles/MAIN.dir/src/main.cc.o: \
-  /Users/oleg/Documents/GitHub/triangles_3d/src/main.cc \
+CMakeFiles/MAIN.dir/src/parsing_triangles.cc.o: \
+  /Users/oleg/Documents/GitHub/triangles_3d/src/parsing_triangles.cc \
   /Users/oleg/Documents/GitHub/triangles_3d/include/parsing_triangles.hpp \
   /Users/oleg/Documents/GitHub/triangles_3d/include/func.hpp \
   /Users/oleg/Documents/GitHub/triangles_3d/include/OctTree.hpp \

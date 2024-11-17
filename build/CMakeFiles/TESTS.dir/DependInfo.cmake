@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/oleg/Documents/GitHub/triangles_3d/src/cut.cc" "CMakeFiles/TESTS.dir/src/cut.cc.o" "gcc" "CMakeFiles/TESTS.dir/src/cut.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/func.cc" "CMakeFiles/TESTS.dir/src/func.cc.o" "gcc" "CMakeFiles/TESTS.dir/src/func.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/line.cc" "CMakeFiles/TESTS.dir/src/line.cc.o" "gcc" "CMakeFiles/TESTS.dir/src/line.cc.o.d"
+  "/Users/oleg/Documents/GitHub/triangles_3d/src/parsing_triangles.cc" "CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o" "gcc" "CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/plane.cc" "CMakeFiles/TESTS.dir/src/plane.cc.o" "gcc" "CMakeFiles/TESTS.dir/src/plane.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/point.cc" "CMakeFiles/TESTS.dir/src/point.cc.o" "gcc" "CMakeFiles/TESTS.dir/src/point.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/triangle.cc" "CMakeFiles/TESTS.dir/src/triangle.cc.o" "gcc" "CMakeFiles/TESTS.dir/src/triangle.cc.o.d"

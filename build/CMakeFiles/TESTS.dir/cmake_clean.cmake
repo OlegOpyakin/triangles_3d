@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TESTS.dir/src/func.cc.o.d"
   "CMakeFiles/TESTS.dir/src/line.cc.o"
   "CMakeFiles/TESTS.dir/src/line.cc.o.d"
+  "CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o"
+  "CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o.d"
   "CMakeFiles/TESTS.dir/src/plane.cc.o"
   "CMakeFiles/TESTS.dir/src/plane.cc.o.d"
   "CMakeFiles/TESTS.dir/src/point.cc.o"

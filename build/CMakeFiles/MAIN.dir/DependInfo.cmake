@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/oleg/Documents/GitHub/triangles_3d/src/func.cc" "CMakeFiles/MAIN.dir/src/func.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/func.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/line.cc" "CMakeFiles/MAIN.dir/src/line.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/line.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/main.cc" "CMakeFiles/MAIN.dir/src/main.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/main.cc.o.d"
+  "/Users/oleg/Documents/GitHub/triangles_3d/src/parsing_triangles.cc" "CMakeFiles/MAIN.dir/src/parsing_triangles.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/parsing_triangles.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/plane.cc" "CMakeFiles/MAIN.dir/src/plane.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/plane.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/point.cc" "CMakeFiles/MAIN.dir/src/point.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/point.cc.o.d"
   "/Users/oleg/Documents/GitHub/triangles_3d/src/triangle.cc" "CMakeFiles/MAIN.dir/src/triangle.cc.o" "gcc" "CMakeFiles/MAIN.dir/src/triangle.cc.o.d"
