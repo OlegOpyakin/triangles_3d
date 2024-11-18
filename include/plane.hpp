@@ -21,7 +21,7 @@ public:
     void SetD(const double D);
 
 
-    double ValuePlaneEqual(Point point);
+    double SignOfPointPosition(Point point);
     Vector GetVector() const;
 
     void Print();

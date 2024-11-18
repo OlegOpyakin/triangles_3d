@@ -24,8 +24,9 @@ void Plane::SetB(const double B) { B_ = B; }
 void Plane::SetC(const double C) { C_ = C; }
 void Plane::SetD(const double D) { D_ = D; }
 
-double Plane::ValuePlaneEqual(Point point){
-    return A_ * point.GetX() + B_ * point.GetY() + C_ * point.GetZ() + D_;
+double Plane::SignOfPointPosition(Point point){
+    if ((A_ * point.GetX() + B_ * point.GetY() + C_ * point.GetZ() + D_) > 0) return true;
+    return false;
 }
 
 Vector Plane::GetVector() const { return normal_vector_; }

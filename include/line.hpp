@@ -23,3 +23,6 @@ private:
 };
 
 bool LinesParallelCheck(Line line_1, Line line_2);
+
+
+bool LineEqual(Line line_1, Line line_2);

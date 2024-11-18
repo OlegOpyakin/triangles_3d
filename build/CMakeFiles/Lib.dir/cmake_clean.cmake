@@ -21,8 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Lib.dir/src/triangle.cc.o.d"
   "CMakeFiles/Lib.dir/src/vector.cc.o"
   "CMakeFiles/Lib.dir/src/vector.cc.o.d"
-  "libLib.dylib"
   "libLib.pdb"
+  "libLib.so"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -35,6 +35,7 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
         else return true;
     }
     
+
     if (ItPoint(triangle_1) or ItPoint(triangle_2)){
         if (PlaneEqual(triangle_1.GetPlane(), triangle_2.GetPlane()) == false){ 
             return false;   // they are parallel, but not the same
@@ -43,8 +44,8 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
             return TrianglesInOnePlanesIntersection(triangle_1, triangle_2);   
         }
     }
-
     // another cases
+
     if (PlaneParallel(triangle_1.GetPlane(), triangle_2.GetPlane())){     // 1 case
         if (PlaneEqual(triangle_1.GetPlane(), triangle_2.GetPlane()) == false){ 
             return false;   // they are parallel, but not the same

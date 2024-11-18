@@ -51,7 +51,6 @@ double Cut::FindMaxArg(){
 
         Line line_1 = cut.GetLine(); 
 
-
         Point point1 = line_1.GetStartPoint();
         Point point2 = line_2.GetStartPoint();
         Vector vector1 = line_1.GetDirectionVector();
@@ -100,10 +99,11 @@ double Cut::FindMaxArg(){
             s = ((x2 -x1) * B1 - (y2 - y1) * A1) / denom;
         }
 
+
         //double t_min = cut.FindMinArg();
         //double t_max = cut.FindMaxArg();
 
-// the code is written so that min always = 0 and max = 1;
+// the code is written so that min always = -1 and max = 0;
 
 /*
         if (t_min <= t_max){
@@ -115,6 +115,6 @@ double Cut::FindMaxArg(){
             else return std::make_pair(false, 0);
         }
 */
-        if (-1 <= t and t <= 1) return std::make_pair(true, s);
+        if (-1 <= t and t <= 0) return std::make_pair(true, s);
         else return std::make_pair(false, 0);
     }
