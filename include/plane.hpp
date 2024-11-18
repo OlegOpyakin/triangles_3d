@@ -6,7 +6,7 @@ class Plane{
 public:
     Plane();
 
-    Plane(Point point_1, Point point_2, Point point_3);
+    Plane(Point &point_1, Point &point_2, Point &point_3);
 
     ~Plane() = default;
 
@@ -15,13 +15,13 @@ public:
     double GetC() const;
     double GetD() const;
 
-    void SetA(const double A);
-    void SetB(const double B);
-    void SetC(const double C);
-    void SetD(const double D);
+    void SetA(const double &A);
+    void SetB(const double &B);
+    void SetC(const double &C);
+    void SetD(const double &D);
 
 
-    double SignOfPointPosition(Point point);
+    double SignOfPointPosition(Point &point);
     Vector GetVector() const;
 
     void Print();
@@ -31,7 +31,6 @@ private:
     Vector normal_vector_;
 };
 
-bool PlanesParallelCheck(Plane &plane_1, Plane &plane_2);           // to check if two planes are parallel
 
 Vector VectorPlanesIntersection(Plane plane_1, Plane plane_2);
 

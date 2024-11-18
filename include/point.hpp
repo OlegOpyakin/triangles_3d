@@ -13,9 +13,9 @@ public:
 
     ~Point() = default;
 
-    void SetX(const double X);
-    void SetY(const double Y);
-    void SetZ(const double Z);
+    void SetX(const double &X);
+    void SetY(const double &Y);
+    void SetZ(const double &Z);
 
     double GetX() const;
     double GetY() const;

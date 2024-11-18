@@ -11,7 +11,7 @@ public:
     Vector(); //DEFAULT
 
     // vector from start point to end point
-    Vector(Point point_start, Point point_end);
+    Vector(Point &point_start, Point &point_end);
         
     Vector(double X, double Y, double Z);
 
@@ -21,9 +21,9 @@ public:
     double GetY() const;
     double GetZ() const;
 
-    void SetX(const double X);
-    void SetY(const double Y);
-    void SetZ(const double Z);
+    void SetX(const double &X);
+    void SetY(const double &Y);
+    void SetZ(const double &Z);
     
     void Print();
 

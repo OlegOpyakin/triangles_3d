@@ -7,7 +7,7 @@ class Cut{
 public:
     Cut(); //DEFAULT
 
-    Cut(Line line, Point start_point, Point end_point); // vector from start point to end point
+    Cut(Line &line, Point &start_point, Point &end_point); // vector from start point to end point
 
     Cut(Point start_point, Point end_point); // vector from start point to end point
     

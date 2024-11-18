@@ -2,7 +2,7 @@
 
 Plane::Plane(): A_(0), B_(0), C_(0), D_(0), normal_vector_() {}
 
-Plane::Plane(Point point_1, Point point_2, Point point_3) {
+Plane::Plane(Point &point_1, Point &point_2, Point &point_3) {
     Vector vector_1_2(point_1, point_2);
     Vector vector_1_3(point_1, point_3);
 
@@ -19,12 +19,12 @@ double Plane::GetB() const { return B_; }
 double Plane::GetC() const { return C_; }
 double Plane::GetD() const { return D_; }
 
-void Plane::SetA(const double A) { A_ = A; }
-void Plane::SetB(const double B) { B_ = B; }
-void Plane::SetC(const double C) { C_ = C; }
-void Plane::SetD(const double D) { D_ = D; }
+void Plane::SetA(const double &A) { A_ = A; }
+void Plane::SetB(const double &B) { B_ = B; }
+void Plane::SetC(const double &C) { C_ = C; }
+void Plane::SetD(const double &D) { D_ = D; }
 
-double Plane::SignOfPointPosition(Point point){
+double Plane::SignOfPointPosition(Point &point){
     if ((A_ * point.GetX() + B_ * point.GetY() + C_ * point.GetZ() + D_) > 0) return true;
     return false;
 }
@@ -36,9 +36,7 @@ void Plane::Print() {
     normal_vector_.Print();
 }
 
-bool PlanesParallelCheck(Plane &plane_1, Plane &plane_2){           // to check if two planes are parallel
-    return VectorEqual(plane_1.GetVector(), plane_2.GetVector()); // returns true if they are
-}
+
 
 Vector VectorPlanesIntersection(Plane plane_1, Plane plane_2){
     return VectorProduct(plane_1.GetVector(), plane_2.GetVector());

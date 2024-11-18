@@ -30,11 +30,11 @@ public:
 
     bool PointInTriangle(Point point);
 
-    double test(Point point);
+    double test(Point &point);
 
-    std::pair<bool, std::pair<double, double>> TriangleLineIntersection(Line line);
+    std::pair<bool, std::pair<double, double>> TriangleLineIntersection(Line &line);
 
-    bool TriangleAndPlaneIntesection(Plane plane);
+    bool TriangleAndPlaneIntesection(Plane &plane);
 
     //------------ added ------------
 
@@ -48,4 +48,4 @@ private:
 };
 
 
-bool TrianglesInOnePlanesIntersection(Triangle triangle_1, Triangle triangle_2);
+bool TrianglesInOnePlanesIntersection(Triangle &triangle_1, Triangle &triangle_2);

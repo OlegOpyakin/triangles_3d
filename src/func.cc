@@ -6,7 +6,7 @@
 *   2. The points of one triangle lie on one side of the plane of the other triangle
 *   3. The intersection of triangles along the line of intersection of their planes
 */
-bool CorrectPointOrder(double t11, double t12, double t21, double t22){ // only for point 1 < point 2
+bool CorrectPointOrder(double &t11, double &t12, double &t21, double &t22){ // only for point 1 < point 2
     // T11 T12 T21 T22
     if (t11 <= t12 and t12 < t21 and t21 <= t22) return false;
     // T11 T12 T22 T21
@@ -18,7 +18,7 @@ bool CorrectPointOrder(double t11, double t12, double t21, double t22){ // only 
     return true;
 }
 
-bool ItPoint(Triangle triangle_1){
+bool ItPoint(Triangle &triangle_1){
     if (triangle_1.get_point_1().GetX() != triangle_1.get_point_2().GetX()) return false;
     if (triangle_1.get_point_1().GetX() != triangle_1.get_point_3().GetX()) return false;
     if (triangle_1.get_point_1().GetY() != triangle_1.get_point_2().GetY()) return false;

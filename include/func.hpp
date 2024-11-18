@@ -3,6 +3,8 @@
 
 #pragma once
 
-bool CorrectPointOrder(double t11, double t12, double t21, double t22); // only for point 1 < point 2
+bool CorrectPointOrder(double &t11, double &t12, double &t21, double &t22); // only for point 1 < point 2
+
+bool ItPoint(Triangle &triangle_1);
 
 bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2);

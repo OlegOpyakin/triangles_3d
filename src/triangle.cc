@@ -41,12 +41,12 @@ bool Triangle::PointInTriangle(Point point){
     return false;
 }
 
-double Triangle::test(Point point){
+double Triangle::test(Point &point){
     return Triangle(point, point_2_, point_3_).Square() + Triangle(point, point_1_, point_2_).Square() +
            Triangle(point, point_1_, point_3_).Square();
 }
 
-bool Triangle::TriangleAndPlaneIntesection(Plane plane){
+bool Triangle::TriangleAndPlaneIntesection(Plane &plane){
     if (PlaneParallel(GetPlane(), plane)) return false;
        
     Vector plane_intesection_vector = VectorPlanesIntersection(GetPlane(), plane);   // The intersection vector of the planes
@@ -57,7 +57,7 @@ bool Triangle::TriangleAndPlaneIntesection(Plane plane){
     return TriangleLineIntersection(plane_intersection_line).first; 
 }
 
-std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Line line){
+std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Line &line){
     // cut 1-2 & line
     std::pair<double, double> points(0,0);          // t1 and t2
     std::pair<bool, double> one_point_result;
@@ -110,7 +110,7 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
 
 
 
-bool TrianglesInOnePlanesIntersection(Triangle triangle_1, Triangle triangle_2){
+bool TrianglesInOnePlanesIntersection(Triangle &triangle_1, Triangle &triangle_2){
     if (triangle_1.PointInTriangle(triangle_2.get_point_1())) return true;
     if (triangle_1.PointInTriangle(triangle_2.get_point_2())) return true;
     if (triangle_1.PointInTriangle(triangle_2.get_point_3())) return true;

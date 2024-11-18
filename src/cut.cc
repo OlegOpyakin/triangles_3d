@@ -4,7 +4,7 @@
 Cut::Cut(): line(Line()), start_point(Point()), end_point(Point()) {} //DEFAULT
 
 // cut = line from start point to end point
-Cut::Cut(Line line, Point start_point, Point end_point): line(line),
+Cut::Cut(Line &line, Point &start_point, Point &end_point): line(line),
                                                          start_point(start_point),
                                                          end_point(end_point) {}
 
