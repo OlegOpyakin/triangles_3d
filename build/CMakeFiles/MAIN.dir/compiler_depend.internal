@@ -1152,6 +1152,7 @@ CMakeFiles/MAIN.dir/src/main.cc.o
  /usr/include/c++/12/bits/stl_vector.h
  /usr/include/c++/12/bits/stl_bvector.h
  /usr/include/c++/12/bits/vector.tcc
+ /usr/include/c++/12/ctime
 
 CMakeFiles/MAIN.dir/src/parsing_triangles.cc.o
  /home/user/Документы/GitHub/triangles_3d/src/parsing_triangles.cc

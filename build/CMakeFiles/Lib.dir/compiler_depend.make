@@ -1145,7 +1145,8 @@ CMakeFiles/Lib.dir/src/main.cc.o: /home/user/Документы/GitHub/triangles
   /usr/include/c++/12/bits/stl_uninitialized.h \
   /usr/include/c++/12/bits/stl_vector.h \
   /usr/include/c++/12/bits/stl_bvector.h \
-  /usr/include/c++/12/bits/vector.tcc
+  /usr/include/c++/12/bits/vector.tcc \
+  /usr/include/c++/12/ctime
 
 CMakeFiles/Lib.dir/src/parsing_triangles.cc.o: /home/user/Документы/GitHub/triangles_3d/src/parsing_triangles.cc \
   /usr/include/stdc-predef.h \
