@@ -1,5 +1,6 @@
 #include "vector.hpp"
 #include <cmath>
+#include "approx_equal.hpp"
 #pragma once
 
 class Line{

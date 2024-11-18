@@ -178,5 +178,6 @@ CMakeFiles/MAIN.dir/src/cut.cc.o: \
  /usr/include/c++/12/tr1/modified_bessel_func.tcc \
  /usr/include/c++/12/tr1/poly_hermite.tcc \
  /usr/include/c++/12/tr1/poly_laguerre.tcc \
- /usr/include/c++/12/tr1/riemann_zeta.tcc /usr/include/c++/12/utility \
- /usr/include/c++/12/bits/stl_relops.h
+ /usr/include/c++/12/tr1/riemann_zeta.tcc \
+ /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
+ /usr/include/c++/12/utility /usr/include/c++/12/bits/stl_relops.h

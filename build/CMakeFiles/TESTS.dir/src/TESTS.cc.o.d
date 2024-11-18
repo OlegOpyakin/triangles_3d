@@ -334,6 +334,7 @@ CMakeFiles/TESTS.dir/src/TESTS.cc.o: \
  /usr/include/c++/12/tr1/riemann_zeta.tcc \
  /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
  /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+ /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
  /usr/include/c++/12/list /usr/include/c++/12/bits/stl_list.h \
  /usr/include/c++/12/bits/list.tcc /usr/include/c++/12/random \
  /usr/include/c++/12/bits/random.h \

@@ -181,6 +181,7 @@ CMakeFiles/TESTS.dir/src/triangle.cc.o: \
  /usr/include/c++/12/tr1/riemann_zeta.tcc \
  /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
  /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+ /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
  /usr/include/c++/12/utility /usr/include/c++/12/bits/stl_relops.h \
  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
  /usr/include/c++/12/iomanip /usr/include/c++/12/locale \

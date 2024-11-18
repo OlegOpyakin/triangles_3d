@@ -38,14 +38,14 @@ bool Triangle::PointInTriangle(Point point){
     Vector product2 = VectorProduct(vector_32, vector_p2);    // CB * PB
     Vector product3 = VectorProduct(vector_13, vector_p3);    // AC * PC
 
-    if ((product1.GetX() >= 0) and (product2.GetX() >= 0) and (product3.GetX() >= 0) and
-        (product1.GetY() >= 0) and (product2.GetY() >= 0) and (product3.GetY() >= 0) and
-        (product1.GetZ() >= 0) and (product2.GetZ() >= 0) and (product3.GetZ() >= 0)){
+    if ((product1.GetX() >= -0.0001) and (product2.GetX() >= -0.0001) and (product3.GetX() >= -0.0001) and
+        (product1.GetY() >= -0.0001) and (product2.GetY() >= -0.0001) and (product3.GetY() >= -0.0001) and
+        (product1.GetZ() >= -0.0001) and (product2.GetZ() >= -0.0001) and (product3.GetZ() >= -0.0001)){
         return true;
     }
-    if ((product1.GetX() < 0) and (product2.GetX() < 0) and (product3.GetX() < 0) and
-        (product1.GetY() < 0) and (product2.GetY() < 0) and (product3.GetY() < 0) and
-        (product1.GetZ() < 0) and (product2.GetZ() < 0) and (product3.GetZ() < 0)){
+    if ((product1.GetX() < 0.0001) and (product2.GetX() < 0.0001) and (product3.GetX() < 0.0001) and
+        (product1.GetY() < 0.0001) and (product2.GetY() < 0.0001) and (product3.GetY() < 0.0001) and
+        (product1.GetZ() < 0.0001) and (product2.GetZ() < 0.0001) and (product3.GetZ() < 0.0001)){
         return true;
     }
     return false;
@@ -67,7 +67,6 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
     std::pair<double, double> points(0,0);          // t1 and t2
     std::pair<bool, double> one_point_result;
     bool result_first_was_write = false;
-    
 
     if (LineEqual(Cut(get_point_1(), get_point_2()).GetLine(), line)){
         one_point_result = std::make_pair(true, -1);

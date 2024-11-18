@@ -80,10 +80,10 @@ double Cut::FindMaxArg(){
             denom = B1 * C2 - B2 * C1;
             if (denom == 0) {
                 if (x1 == x2 and y1 == y2 and z1 == z2){
-                    return std::make_pair(true, 0); // нам не важен будет порядок точек
+                    return std::make_pair(true, 2); // нам не важен будет порядок точек
                 }
                 else if (((x1-x2)*B1  == (y1-y2)*A1) and ((x1-x2)*C1  == (z1-z2)*A1)){
-                    return std::make_pair(true, 0); // нам не важен будет порядок точек
+                    return std::make_pair(true, 2); // нам не важен будет порядок точек
                 }
                 else{
                     return std::make_pair(false, 0); // parallel
@@ -115,6 +115,6 @@ double Cut::FindMaxArg(){
             else return std::make_pair(false, 0);
         }
 */
-        if (-1 <= t and t <= 0) return std::make_pair(true, s);
+        if (-1.0001 <= t and t <= 0.0001) return std::make_pair(true, s);
         else return std::make_pair(false, 0);
     }

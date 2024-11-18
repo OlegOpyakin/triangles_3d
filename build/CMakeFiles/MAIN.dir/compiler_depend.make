@@ -223,6 +223,7 @@ CMakeFiles/MAIN.dir/src/OctTree.cc.o: /home/user/Документы/GitHub/trian
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h \
   /usr/include/c++/12/list \
@@ -455,6 +456,7 @@ CMakeFiles/MAIN.dir/src/cut.cc.o: /home/user/Документы/GitHub/triangles
   /usr/include/c++/12/tr1/poly_hermite.tcc \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h
 
@@ -681,6 +683,7 @@ CMakeFiles/MAIN.dir/src/func.cc.o: /home/user/Документы/GitHub/triangle
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h \
   /usr/include/c++/12/list \
@@ -907,7 +910,8 @@ CMakeFiles/MAIN.dir/src/line.cc.o: /home/user/Документы/GitHub/triangle
   /usr/include/c++/12/tr1/modified_bessel_func.tcc \
   /usr/include/c++/12/tr1/poly_hermite.tcc \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
-  /usr/include/c++/12/tr1/riemann_zeta.tcc
+  /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp
 
 CMakeFiles/MAIN.dir/src/main.cc.o: /home/user/Документы/GitHub/triangles_3d/src/main.cc \
   /usr/include/stdc-predef.h \
@@ -1133,6 +1137,7 @@ CMakeFiles/MAIN.dir/src/main.cc.o: /home/user/Документы/GitHub/triangle
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h \
   /usr/include/c++/12/list \
@@ -1145,8 +1150,7 @@ CMakeFiles/MAIN.dir/src/main.cc.o: /home/user/Документы/GitHub/triangle
   /usr/include/c++/12/bits/stl_uninitialized.h \
   /usr/include/c++/12/bits/stl_vector.h \
   /usr/include/c++/12/bits/stl_bvector.h \
-  /usr/include/c++/12/bits/vector.tcc \
-  /usr/include/c++/12/ctime
+  /usr/include/c++/12/bits/vector.tcc
 
 CMakeFiles/MAIN.dir/src/parsing_triangles.cc.o: /home/user/Документы/GitHub/triangles_3d/src/parsing_triangles.cc \
   /usr/include/stdc-predef.h \
@@ -1372,6 +1376,7 @@ CMakeFiles/MAIN.dir/src/parsing_triangles.cc.o: /home/user/Документы/Gi
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h \
   /usr/include/c++/12/list \
@@ -2013,6 +2018,7 @@ CMakeFiles/MAIN.dir/src/triangle.cc.o: /home/user/Документы/GitHub/tria
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h \
   /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \

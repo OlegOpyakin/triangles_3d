@@ -19,16 +19,17 @@ bool LinesParallelCheck(Line &line_1, Line &line_2){
     return VectorEqual(line_1.GetDirectionVector(), line_2.GetDirectionVector());
 }
 bool LineEqual(Line line_1, Line line_2){
+    if (LinesParallelCheck(line_1, line_2)){
         Point point_1 = line_1.GetStartPoint();
         Point point_2 = line_2.GetStartPoint();
         Vector direction_vector = line_1.GetDirectionVector();
-        if ((point_1.GetX() - point_2.GetX()) * direction_vector.GetY() != (point_1.GetY() - point_2.GetY()) * direction_vector.GetX()){
-
+        if (ApproxEqual((point_1.GetX() - point_2.GetX()) * direction_vector.GetY(), (point_1.GetY() - point_2.GetY()) * direction_vector.GetX()) == false){
             return false;
         }
-        if ((point_1.GetX() - point_2.GetX()) * direction_vector.GetZ() != (point_1.GetZ() - point_2.GetZ()) * direction_vector.GetX()){
+        if (ApproxEqual((point_1.GetX() - point_2.GetX()) * direction_vector.GetZ(), (point_1.GetZ() - point_2.GetZ()) * direction_vector.GetX()) == false){
             return false;
         }
         return true;
+    }
     return false;
 }

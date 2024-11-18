@@ -223,6 +223,7 @@ CMakeFiles/TESTS.dir/src/OctTree.cc.o: /home/user/Документы/GitHub/tria
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h \
   /usr/include/c++/12/list \
@@ -638,6 +639,7 @@ CMakeFiles/TESTS.dir/src/TESTS.cc.o: /home/user/Документы/GitHub/triang
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/list \
   /usr/include/c++/12/bits/stl_list.h \
   /usr/include/c++/12/bits/list.tcc \
@@ -872,6 +874,7 @@ CMakeFiles/TESTS.dir/src/cut.cc.o: /home/user/Документы/GitHub/triangle
   /usr/include/c++/12/tr1/poly_hermite.tcc \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h
 
@@ -1098,6 +1101,7 @@ CMakeFiles/TESTS.dir/src/func.cc.o: /home/user/Документы/GitHub/triangl
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h \
   /usr/include/c++/12/list \
@@ -1324,7 +1328,8 @@ CMakeFiles/TESTS.dir/src/line.cc.o: /home/user/Документы/GitHub/triangl
   /usr/include/c++/12/tr1/modified_bessel_func.tcc \
   /usr/include/c++/12/tr1/poly_hermite.tcc \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
-  /usr/include/c++/12/tr1/riemann_zeta.tcc
+  /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp
 
 CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o: /home/user/Документы/GitHub/triangles_3d/src/parsing_triangles.cc \
   /usr/include/stdc-predef.h \
@@ -1550,6 +1555,7 @@ CMakeFiles/TESTS.dir/src/parsing_triangles.cc.o: /home/user/Документы/G
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h \
   /usr/include/c++/12/list \
@@ -2191,6 +2197,7 @@ CMakeFiles/TESTS.dir/src/triangle.cc.o: /home/user/Документы/GitHub/tri
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /home/user/Документы/GitHub/triangles_3d/include/cut.hpp \
   /home/user/Документы/GitHub/triangles_3d/include/line.hpp \
+  /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
   /usr/include/c++/12/utility \
   /usr/include/c++/12/bits/stl_relops.h \
   /home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp \
@@ -2437,8 +2444,6 @@ CMakeFiles/TESTS.dir/src/vector.cc.o: /home/user/Документы/GitHub/trian
 
 /home/user/Документы/GitHub/triangles_3d/src/cut.cc:
 
-/home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp:
-
 /home/user/Документы/GitHub/triangles_3d/src/approx_equal.cc:
 
 /usr/include/c++/12/pstl/glue_numeric_defs.h:
@@ -2656,6 +2661,8 @@ _deps/googletest-src/googletest/include/gtest/gtest-assertion-result.h:
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/c++/12/pstl/pstl_config.h:
 
@@ -2935,8 +2942,6 @@ _deps/googletest-src/googletest/include/gtest/internal/gtest-port.h:
 
 /usr/include/linux/limits.h:
 
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
 /usr/include/c++/12/bits/stream_iterator.h:
 
 /usr/include/c++/12/ios:
@@ -2980,6 +2985,8 @@ _deps/googletest-src/googletest/include/gtest/gtest_pred_impl.h:
 /usr/include/x86_64-linux-gnu/sys/wait.h:
 
 /usr/include/asm-generic/errno-base.h:
+
+/home/user/Документы/GitHub/triangles_3d/include/approx_equal.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 

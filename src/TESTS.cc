@@ -227,7 +227,7 @@ protected:
         line3 = new Line(*p31, *p32);
         line4 = new Line(*p41, *p42);
 
-        cut1 = new Cut(*p11, *p12);
+        cut1 = new Cut(*p12, *p11);
     }
 
     void TearDown() override {
