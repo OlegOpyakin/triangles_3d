@@ -24,13 +24,7 @@ public:
 
     bool AllPointsRightOfPlane(Plane plane);
 
-    double HalfPerimeter();
-
-    double Square();
-
     bool PointInTriangle(Point point);
-
-    double test(Point &point);
 
     std::pair<bool, std::pair<double, double>> TriangleLineIntersection(Line &line);
 

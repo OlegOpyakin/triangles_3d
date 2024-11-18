@@ -11,7 +11,7 @@ public:
     Vector(); //DEFAULT
 
     // vector from start point to end point
-    Vector(Point &point_start, Point &point_end);
+    Vector(Point point_start, Point point_end);
         
     Vector(double X, double Y, double Z);
 

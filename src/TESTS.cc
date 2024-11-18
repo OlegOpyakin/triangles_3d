@@ -587,14 +587,6 @@ TEST_F(PlaneTest, PointPlanesIntersection) {
 
 // -------- Tests for Triangles in One Plane Intersection ----------- 
 
-TEST_F(TriangleTest, HalfPerimeter) {
-    EXPECT_EQ(triangle1->HalfPerimeter(), 6);
-}
-
-TEST_F(TriangleTest, Square) {
-    EXPECT_EQ(triangle1->Square(), 6);
-}
-
 TEST_F(TriangleTest, PointInTriangle) {
     EXPECT_FALSE(triangle1->PointInTriangle(*point_outside_triangle1));
     // Check S1 and S2 equal

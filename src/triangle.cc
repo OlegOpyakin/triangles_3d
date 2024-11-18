@@ -25,25 +25,30 @@ bool Triangle::AllPointsRightOfPlane(Plane plane){
     return false;
 }
 
-double Triangle::HalfPerimeter(){ 
-    return (Vector(point_1_, point_2_).Len() + Vector(point_1_, point_3_).Len() + Vector(point_2_, point_3_).Len())/2;
-}
-
-double Triangle::Square(){    
-    return sqrt(HalfPerimeter() * (HalfPerimeter() - Vector(point_1_, point_2_).Len()) * 
-           (HalfPerimeter() - Vector(point_1_, point_3_).Len()) * (HalfPerimeter() - Vector(point_2_, point_3_).Len()));
-}
-
 bool Triangle::PointInTriangle(Point point){  
-    double new_square = Triangle(point, point_2_, point_3_).Square() + Triangle(point, point_1_, point_2_).Square() +
-                        Triangle(point, point_1_, point_3_).Square();
-    if (ApproxEqual(Square(), new_square)) return true;
-    return false;
-}
+    Vector vector_21(get_point_1(), get_point_2()); // BA
+    Vector vector_32(get_point_2(), get_point_3()); // CB
+    Vector vector_13(get_point_3(), get_point_1()); // AC
+    Vector vector_p1(get_point_1(), point);         // PA
+    Vector vector_p2(get_point_2(), point);         // PB
+    Vector vector_p3(get_point_3(), point);         // PC
+    
 
-double Triangle::test(Point &point){
-    return Triangle(point, point_2_, point_3_).Square() + Triangle(point, point_1_, point_2_).Square() +
-           Triangle(point, point_1_, point_3_).Square();
+    Vector product1 = VectorProduct(vector_21, vector_p1);    // BA * PA
+    Vector product2 = VectorProduct(vector_32, vector_p2);    // CB * PB
+    Vector product3 = VectorProduct(vector_13, vector_p3);    // AC * PC
+
+    if ((product1.GetX() >= 0) and (product2.GetX() >= 0) and (product3.GetX() >= 0) and
+        (product1.GetY() >= 0) and (product2.GetY() >= 0) and (product3.GetY() >= 0) and
+        (product1.GetZ() >= 0) and (product2.GetZ() >= 0) and (product3.GetZ() >= 0)){
+        return true;
+    }
+    if ((product1.GetX() < 0) and (product2.GetX() < 0) and (product3.GetX() < 0) and
+        (product1.GetY() < 0) and (product2.GetY() < 0) and (product3.GetY() < 0) and
+        (product1.GetZ() < 0) and (product2.GetZ() < 0) and (product3.GetZ() < 0)){
+        return true;
+    }
+    return false;
 }
 
 bool Triangle::TriangleAndPlaneIntesection(Plane &plane){

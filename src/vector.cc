@@ -3,7 +3,7 @@
 Vector::Vector(): X_(0), Y_(0), Z_(0) {}; //DEFAULT
 
 // vector from start point to end point
-Vector::Vector(Point &point_start, Point &point_end): X_(point_end.GetX() - point_start.GetX()),
+Vector::Vector(Point point_start, Point point_end): X_(point_end.GetX() - point_start.GetX()),
                                                     Y_(point_end.GetY() - point_start.GetY()),
                                                     Z_(point_end.GetZ() - point_start.GetZ()) {}
         
