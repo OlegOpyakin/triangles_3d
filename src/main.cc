@@ -54,6 +54,7 @@ int main(){
             std::cout << i << std::endl;
     }
     
+    delete[] intersections;
     /*
     std::cout << "\ncount = " << counter << std::endl;
     

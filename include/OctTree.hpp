@@ -38,11 +38,6 @@ class OctTree{
 public:
     OctTree(const std::list<Triangle>& all_triangles, double max_size);
     ~OctTree();
-    /*
-    ~OctTree(){
-        DeleteNodes(root_);
-        delete root_;
-    };*/
     
     void DeleteNodes(Node* node);
 
