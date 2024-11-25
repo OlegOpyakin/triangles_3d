@@ -77,7 +77,7 @@ std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){
             }
         }
         else{
-            s = ((x2 - x1) * B1 - (y2 - y1) * A1) / denom;
+            s = ((y2 - y1) * C1 - (z2 - z1) * B1) / denom;
         }
     }
     else{
