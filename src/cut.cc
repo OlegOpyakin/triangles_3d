@@ -19,102 +19,76 @@ Point Cut::GetStartPoint () const { return start_point; }
 
 Point Cut::GetEndPoint () const { return end_point; }
 
-/*
-double Cut::FindMinArg(){
-    // x = x_0  + A * t => t = (x - x_0)/A
-    if (line.GetDirectionVector().GetX() != 0){
-        return -(start_point.GetX() - line.GetStartPoint().GetX())/line.GetDirectionVector().GetX();
-    }
-    else if (line.GetDirectionVector().GetY() != 0){
-        return -(start_point.GetY() - line.GetStartPoint().GetY())/line.GetDirectionVector().GetY();
-    }
-    else if (line.GetDirectionVector().GetZ() != 0){
-        return -(start_point.GetZ() - line.GetStartPoint().GetZ())/line.GetDirectionVector().GetZ();
-    }
+double Cut::Len() const{
+    return sqrt((start_point.GetX() - end_point.GetX()) * (start_point.GetX() - end_point.GetX()) + 
+            (start_point.GetY() - end_point.GetY()) * (start_point.GetY() - end_point.GetY()) + 
+            (start_point.GetZ() - end_point.GetZ()) * (start_point.GetZ() - end_point.GetZ()));
 }
 
-double Cut::FindMaxArg(){
-    // x = x_0  + A * t => t = (x - x_0)/A
-    if (line.GetDirectionVector().GetX() != 0){
-        return -(end_point.GetX() - line.GetStartPoint().GetX())/line.GetDirectionVector().GetX();
-    }
-    else if (line.GetDirectionVector().GetY() != 0){
-        return -(end_point.GetY() - line.GetStartPoint().GetY())/line.GetDirectionVector().GetY();
-    }
-    else if (line.GetDirectionVector().GetZ() != 0){
-        return -(end_point.GetZ() - line.GetStartPoint().GetZ())/line.GetDirectionVector().GetZ();
-    }
+bool Cut::CorrectPoint(Line line, double s){
+    Point point;
+    point.SetX(line.GetStartPoint().GetX() + s * line.GetDirectionVector().GetX());
+    point.SetY(line.GetStartPoint().GetY() + s * line.GetDirectionVector().GetY());
+    point.SetZ(line.GetStartPoint().GetZ() + s * line.GetDirectionVector().GetZ());
+
+    Cut cut1(GetStartPoint(), point);
+    Cut cut2(point, GetEndPoint());    
+
+    return ApproxEqual(Len(), cut1.Len() + cut2.Len());
 }
-*/
 
-    std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){
+std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){
+    Line line_1 = cut.GetLine();  
+    Point point1 = line_1.GetStartPoint();
+    Point point2 = line_2.GetStartPoint();
+    Vector vector1 = line_1.GetDirectionVector();
+    Vector vector2 = line_2.GetDirectionVector();
 
-        Line line_1 = cut.GetLine(); 
+    double x1 = point1.GetX();
+    double y1 = point1.GetY();
+    double z1 = point1.GetZ();
+    double x2 = point2.GetX();
+    double y2 = point2.GetY();
+    double z2 = point2.GetZ();
 
-        Point point1 = line_1.GetStartPoint();
-        Point point2 = line_2.GetStartPoint();
-        Vector vector1 = line_1.GetDirectionVector();
-        Vector vector2 = line_2.GetDirectionVector();
+    double A1 = vector1.GetX();
+    double B1 = vector1.GetY();
+    double C1 = vector1.GetZ();
+    double A2 = vector2.GetX();
+    double B2 = vector2.GetY();
+    double C2 = vector2.GetZ();
 
-        double x1 = point1.GetX();
-        double y1 = point1.GetY();
-        double z1 = point1.GetZ();
-        double x2 = point2.GetX();
-        double y2 = point2.GetY();
-        double z2 = point2.GetZ();
-
-        double A1 = vector1.GetX();
-        double B1 = vector1.GetY();
-        double C1 = vector1.GetZ();
-        double A2 = vector2.GetX();
-        double B2 = vector2.GetY();
-        double C2 = vector2.GetZ();
-
-
-        // We have a parametric equation of a straight line
-        double t, s; // t is the parameter of the first straight line (segment), s is the second
+    // We have a parametric equation of a straight line
+    double s; // ts is the parameter of a parametrically defined line; |s| <= 1 
         
-        // let's check for parallelism
-        double denom = A1 * B2 - A2 * B1;
-        if (denom == 0){
-            denom = B1 * C2 - B2 * C1;
-            if (denom == 0) {
-                if (x1 == x2 and y1 == y2 and z1 == z2){
-                    return std::make_pair(true, 2); // нам не важен будет порядок точек
-                }
-                else if (((x1-x2)*B1  == (y1-y2)*A1) and ((x1-x2)*C1  == (z1-z2)*A1)){
-                    return std::make_pair(true, 2); // нам не важен будет порядок точек
-                }
-                else{
-                    return std::make_pair(false, 0); // parallel
-                }
+    // let's check for parallelism
+    double denom = A1 * B2 - A2 * B1;
+    if (denom == 0){
+        denom = B1 * C2 - B2 * C1;
+        if (denom == 0) {
+            if (x1 == x2 and y1 == y2 and z1 == z2){
+                return std::make_pair(true, 2); // The order of the points will not be important to us
+            }
+            else if (((x1-x2)*B1  == (y1-y2)*A1) and ((x1-x2)*C1  == (z1-z2)*A1)){
+                return std::make_pair(true, 2); // The order of the points will not be important to us
             }
             else{
-                t = ((x2 - x1) * B2 - (y2 - y1) * A2) / denom;
-                s = ((x2 - x1) * B1 - (y2 - y1) * A1) / denom;
+                return std::make_pair(false, 0); // parallel
             }
         }
         else{
-            t = ((x2 -x1) * B2 - (y2 - y1) * A2) / denom;
-            s = ((x2 -x1) * B1 - (y2 - y1) * A1) / denom;
+            s = ((x2 - x1) * B1 - (y2 - y1) * A1) / denom;
         }
-
-
-        //double t_min = cut.FindMinArg();
-        //double t_max = cut.FindMaxArg();
-
-// the code is written so that min always = -1 and max = 0;
-
-/*
-        if (t_min <= t_max){
-            if (t_min <= t and t <= t_max) return std::make_pair(true, s);
-            else return std::make_pair(false, 0);
-        }
-        else{
-            if (t_max <= t and t <= t_min) return std::make_pair(true, s);
-            else return std::make_pair(false, 0);
-        }
-*/
-        if (-1.0001 <= t and t <= 0.0001) return std::make_pair(true, s);
-        else return std::make_pair(false, 0);
     }
+    else{
+        s = ((x2 -x1) * B1 - (y2 - y1) * A1) / denom;
+    }
+
+
+    // but let's add an additional check
+    if (cut.CorrectPoint(line_2, s)){
+        return std::make_pair(true, s);
+    }
+    
+    return std::make_pair(false, 0);
+}

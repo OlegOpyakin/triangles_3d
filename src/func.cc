@@ -81,7 +81,7 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
                 double t22 = intersection_points_2.second.second;
 
 
-                if (t11 == 2 or t12 == 2 or t21 == 2 or t22 == 2){  //мы договаривались о том, что если порядок точек не важен, то t = 2
+                if (t11 == 2 or t12 == 2 or t21 == 2 or t22 == 2){  // we agreed that if the order of the points is not important, then t = 2
                     return true;
                 }
                 // checking the order of the points

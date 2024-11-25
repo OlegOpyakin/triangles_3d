@@ -19,11 +19,9 @@ public:
 
     Point GetEndPoint () const;
 
-    double FindMinArg();
+    double Len() const;
 
-    double FindMaxArg();
-
-    //void operator()(double X, double Y, double Z){} пока не знаю нужен или нет
+    bool CorrectPoint(Line line, double s);
 
 private:
     Line line;

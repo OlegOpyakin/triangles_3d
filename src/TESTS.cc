@@ -626,45 +626,6 @@ TEST_F(Triangles, TrianglesIntersections) {
     
 }
 
-
-// ------------------- Time for Million Elements test -------------------
-/*
-TEST_F(LFUTest, MillionElemsTimeTest) {
-    std::random_device rd;   // non-deterministic generator
-    std::mt19937 gen(rd());  // to seed mersenne twister.
-    std::uniform_int_distribution<int> dist(1, 999); // distribute results between 1 and 6 inclusive.
-    
-    clock_t start = clock();
-    for (int i = 0; i < 1000000; i++) {
-        lfu3->Put(dist(gen));
-    }
-    clock_t end = clock();
-    double seconds = ((double)(end - start))/CLOCKS_PER_SEC;
-    ASSERT_TRUE(seconds <= 1.0);
-}
-
-TEST_F(PerfectTest, MillionElemsTimeTest) {
-    std::random_device rd;   // non-deterministic generator
-    std::mt19937 gen(rd());  // to seed mersenne twister.
-    std::uniform_int_distribution<int> dist(1, 999); // distribute results between 1 and 6 inclusive.
-
-    std::vector<int> mas;
-    for (int i = 0; i < 1000000; i++) {
-        mas.push_back(dist(gen));
-    }
-    cache3->FillMas(mas);
-
-    clock_t start = clock();
-    for (int i = 0; i < 1000000; i++) {
-        cache3->Put();
-    }
-    clock_t end = clock();
-    double seconds = ((double)(end - start))/CLOCKS_PER_SEC;
-    ASSERT_TRUE(seconds <= 1.0);
-}
-
-*/
-
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
