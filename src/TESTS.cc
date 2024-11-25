@@ -3,30 +3,6 @@
 #include <random>
 #include <ctime>
 
-class PerfectTest : public ::testing::Test{
-protected:
-/*
-    PerfectCache* cache;
-    PerfectCache* cache1;
-    PerfectCache* cache2;
-    PerfectCache* cache3;
-
-    void SetUp() override {
-        cache = new PerfectCache(3);
-        cache1 = new PerfectCache(1);
-        cache2= new PerfectCache(2);
-        cache3 = new PerfectCache(1000);
-    }
-
-    void TearDown() override {
-        delete cache;
-        delete cache1;
-        delete cache2;
-        delete cache3;
-    }
-    */
-};
-
 class VectorTest : public ::testing::Test{
 protected:
 
