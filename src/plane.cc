@@ -24,9 +24,8 @@ void Plane::SetB(const double &B) { B_ = B; }
 void Plane::SetC(const double &C) { C_ = C; }
 void Plane::SetD(const double &D) { D_ = D; }
 
-double Plane::SignOfPointPosition(Point &point){
-    if ((A_ * point.GetX() + B_ * point.GetY() + C_ * point.GetZ() + D_) > 0) return true;
-    return false;
+double Plane::PointPosition(Point &point){
+    return ((A_ * point.GetX() + B_ * point.GetY() + C_ * point.GetZ() + D_) > 0);
 }
 
 Vector Plane::GetVector() const { return normal_vector_; }
@@ -53,21 +52,22 @@ Point PointPlanesIntersection(Plane plane_1, Plane plane_2){
     double D2 = plane_2.GetD();
     double x,y,z;
 
-    if (B1 != 0){ 
+    if (ApproxEqual(B1 * C2, C1 * B2) == false){ 
         x = 0;
-        z = ((B2/B1) * D1 - D2)/(C2 - C1 * B2/B1);
-        y = - (C1 * z + D1)/B1;
+        z = (B2 * D1 - B1 * D2)/(B1 * C2 - B2 * C1);
+        y = (C1 * D2 - C2 * D1)/(B1 * C2 - B2 * C1);
     }
-    else if (C1 != 0){
-        x = 0;
-        y = ((C2/C1) * D1 - D2)/(B2 - B1 * C2/C1);
-        z = - (B1 * y + D1)/C1;
+    else if (ApproxEqual(A1 * C2, C1 * A2) == false){
+        y = 0;
+        x = (A2 * D1 - A1 * D2)/(A1 * C2 - A2 * C1);
+        z = (C1 * D2 - C2 * D1)/(A1 * C2 - A2 * C1);
     }
     else {
         z = 0;
-        y = ((A2/A1) * D1 - D2)/(B2 - B1 * A2/A1);
-        x = -(B1 * y + D1)/A1;
+        y = (A2 * D1 - A1 * D2)/(A1 * B2 - A2 * B1);
+        z = (B1 * D2 - B2 * D1)/(A1 * B2 - A2 * B1);
     }
+
     Point intersection_point(x,y,z);
     return intersection_point;
 }

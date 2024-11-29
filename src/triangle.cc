@@ -16,10 +16,10 @@ Point Triangle::get_point_2() const {return point_2_;}
 Point Triangle::get_point_3() const {return point_3_;}
 
 bool Triangle::AllPointsRightOfPlane(Plane plane){
-    if (plane.SignOfPointPosition(point_1_) and plane.SignOfPointPosition(point_2_) and plane.SignOfPointPosition(point_3_)){
+    if (plane.PointPosition(point_1_) > EPSILON and plane.PointPosition(point_2_) > EPSILON and plane.PointPosition(point_3_) > EPSILON){
             return true;
     }
-    if (plane.SignOfPointPosition(point_1_) == false and (plane.SignOfPointPosition(point_2_) == false) and (plane.SignOfPointPosition(point_3_) == false)){
+    if (plane.PointPosition(point_1_) < -EPSILON and (plane.PointPosition(point_2_) < -EPSILON) and (plane.PointPosition(point_3_) < -EPSILON)){
             return true;
     } 
     return false;
@@ -63,11 +63,12 @@ bool Triangle::TriangleAndPlaneIntesection(Plane &plane){
 }
 
 std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Line &line){
-    // cut 1-2 & line
     std::pair<double, double> points(0,0);          // t1 and t2
     std::pair<bool, double> one_point_result;
     bool result_first_was_write = false;
 
+
+    // cut 1-2 & line
     if (LineEqual(Cut(get_point_1(), get_point_2()).GetLine(), line)){
         one_point_result = std::make_pair(true, -1);
     }
@@ -79,9 +80,8 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
         result_first_was_write = true;
     }
 
-    // cut 1-3 & line
 
-    
+    // cut 1-3 & line   
     if (LineEqual(Cut(get_point_1(), get_point_3()).GetLine(), line)){
         if (result_first_was_write){
             one_point_result = std::make_pair(true, 0);
@@ -92,7 +92,8 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
     }
     else{
         one_point_result = CutAndLineIntersection(Cut(get_point_1(), get_point_3()), line);
-    }    if (one_point_result.first){
+    }    
+    if (one_point_result.first){
         if (result_first_was_write){
             points.second = one_point_result.second;
         }
@@ -101,6 +102,8 @@ std::pair<bool, std::pair<double, double>> Triangle::TriangleLineIntersection(Li
             result_first_was_write = true;
         }
     }
+
+
     // cut 2-3 & line
     if (LineEqual(Cut(get_point_2(), get_point_3()).GetLine(), line)){
         one_point_result = std::make_pair(true, 0);

@@ -1,5 +1,6 @@
 #include <stdint.h> 
 #include <iostream>
+#include "approx_equal.hpp"
 
 #pragma once
 

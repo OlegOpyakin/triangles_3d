@@ -21,7 +21,7 @@ public:
     void SetD(const double &D);
 
 
-    double SignOfPointPosition(Point &point);
+    double PointPosition(Point &point);
     Vector GetVector() const;
 
     void Print();

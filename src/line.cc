@@ -29,6 +29,9 @@ bool LineEqual(Line line_1, Line line_2){
         if (ApproxEqual((point_1.GetX() - point_2.GetX()) * direction_vector.GetZ(), (point_1.GetZ() - point_2.GetZ()) * direction_vector.GetX()) == false){
             return false;
         }
+        if (ApproxEqual((point_1.GetY() - point_2.GetY()) * direction_vector.GetZ(), (point_1.GetZ() - point_2.GetZ()) * direction_vector.GetY()) == false){
+            return false;
+        }
         return true;
     }
     return false;

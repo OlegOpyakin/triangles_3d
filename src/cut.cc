@@ -66,14 +66,23 @@ std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){
     if (denom == 0){
         denom = B1 * C2 - B2 * C1;
         if (denom == 0) {
-            if (x1 == x2 and y1 == y2 and z1 == z2){
-                return std::make_pair(true, 2); // The order of the points will not be important to us
-            }
-            else if (((x1-x2)*B1  == (y1-y2)*A1) and ((x1-x2)*C1  == (z1-z2)*A1)){
-                return std::make_pair(true, 2); // The order of the points will not be important to us
+            denom = A1 * C2 - A2 * C1;
+            if (denom == 0) {
+                if (x1 == x2 and y1 == y2 and z1 == z2){
+                    return std::make_pair(true, 2); // The order of the points will not be important to us
+                }
+                else if (((x1-x2)*B1  == (y1-y2)*A1) and ((x1-x2)*C1  == (z1-z2)*A1)){
+                    return std::make_pair(true, 2); // The order of the points will not be important to us
+                }
+                else{
+                    if (LineEqual(line_1, line_2)){
+                        return std::make_pair(true, 2);
+                    }
+                    return std::make_pair(false, 0); // parallel
+                }
             }
             else{
-                return std::make_pair(false, 0); // parallel
+                s = ((x2 - x1) * C1 - (z2 - z1) * A1) / denom;
             }
         }
         else{
@@ -83,7 +92,6 @@ std::pair <bool, double> CutAndLineIntersection(Cut cut, Line line_2){
     else{
         s = ((x2 -x1) * B1 - (y2 - y1) * A1) / denom;
     }
-
 
     // but let's add an additional check
     if (cut.CorrectPoint(line_2, s)){
