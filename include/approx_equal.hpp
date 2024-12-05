@@ -1,3 +1,3 @@
-#define EPSILON 0.00001 // 10^{-5}
+#define EPSILON 0.000000000001 // 10^{-12}
 
 bool ApproxEqual(double A, double B);
