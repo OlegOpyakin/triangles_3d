@@ -8,13 +8,13 @@
 */
 bool CorrectPointOrder(double &t11, double &t12, double &t21, double &t22){ // only for point 1 < point 2
     // T11 T12 T21 T22
-    if ((t11 <= t12) and (t12 < t21) and (t21 <= t22) and (ApproxEqual(t12, t21) == false)) return false;
+    if ((t11 <= t12) and (t12 < t21) and (t21 <= t22)) return false;
     // T11 T12 T22 T21
-    if ((t11 <= t12) and (t12 < t22) and (t22 <= t21) and (ApproxEqual(t12, t22) == false)) return false;
+    if ((t11 <= t12) and (t12 < t22) and (t22 <= t21)) return false;
     // T12 T11 T21 T22
-    if ((t12 <= t11) and (t11 < t21) and (t21 <= t22) and (ApproxEqual(t11, t21) == false)) return false;
+    if ((t12 <= t11) and (t11 < t21) and (t21 <= t22)) return false;
     // T12 T11 T22 T21
-    if ((t12 <= t11) and (t11 < t22) and (t22 <= t21) and (ApproxEqual(t11, t22) == false)) return false;
+    if ((t12 <= t11) and (t11 < t22) and (t22 <= t21)) return false;
     return true;
 }
 
@@ -87,10 +87,13 @@ bool Intersection2Triangles(Triangle triangle_1, Triangle triangle_2){
                 double t12 = intersection_points_1.second.second;
                 double t21 = intersection_points_2.second.first;
                 double t22 = intersection_points_2.second.second;
-                
+
                 if ((t11 == 2) or (t12 == 2) or (t21 == 2) or (t22 == 2)){  // we agreed that if the order of the points is not important, then t = 2
                     return true;
                 }
+
+                if (ApproxEqual(t11, t21) or ApproxEqual(t11, t22) or ApproxEqual(t12, t21) or ApproxEqual(t12, t22)) return true;
+
 
                 // checking the order of the points
                 // The situations T2 T2 T1 T1 and T1 T1 T2 T2 should not come out
